@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 
+import { utils } from '~/res'
+import { FormService } from '~/services'
 import * as authActions from '~/store/modules/auth/actions'
-import { Button } from '~/ui/components'
+import { Button, Input, Form } from '~/ui/components'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,11 +20,28 @@ const styles = StyleSheet.create({
 export function HomeScreen() {
   const dispatch = useDispatch()
 
+  const formRef = useRef()
+
+  const formService = new FormService()
+
   dispatch(authActions.example())
 
   return (
     <View style={styles.container}>
       <Text>HOME</Text>
+      <Form
+        initialValues={{ teste: '' }}
+        innerRef={formRef}
+        onSubmit={() => {}}
+      >
+        <Input
+          innerRef={(ref) => formService.saveInputRef(ref, 'teste')}
+          name='teste'
+          placeholder='Placeholder'
+          validate={utils.validators.isRequired}
+        />
+      </Form>
+
       <Button onPress={() => console.log('teste')}>Teste</Button>
     </View>
   )

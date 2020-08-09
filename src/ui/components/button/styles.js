@@ -11,6 +11,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     borderRadius: 15,
+    marginVertical: 15,
   },
   label: {
     color: COLORS.BLACK,
