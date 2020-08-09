@@ -1,1 +1,1 @@
-export { NavigationService } from "./navigation";
+export { NavigationService } from './navigation'
