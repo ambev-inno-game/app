@@ -18,13 +18,9 @@ const styles = StyleSheet.create({
 })
 
 export function HomeScreen() {
-  const dispatch = useDispatch()
-
   const formRef = useRef()
 
   const formService = new FormService()
-
-  dispatch(authActions.example())
 
   return (
     <View style={styles.container}>

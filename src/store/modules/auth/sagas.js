@@ -1,10 +1,11 @@
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, all, call, put } from 'redux-saga/effects'
+
+import { API_KEY } from '@env'
+
+import { AuthApiService } from '~/services/api'
 
 import ACTION_TYPES from './action-types'
 
-export function* example() {
-  // console.log('saga')
-  // Example saga
-}
+export function* userLogin() {}
 
-export default all([takeLatest(ACTION_TYPES.EXAMPLE, example)])
+export default all([takeLatest(ACTION_TYPES.USER_LOGIN, userLogin)])

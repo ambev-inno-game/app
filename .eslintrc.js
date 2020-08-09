@@ -34,6 +34,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-plusplus': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'import/no-unresolved': ['error', { ignore: ['@env'] }],
     'react/sort-prop-types': [
       2,
       {

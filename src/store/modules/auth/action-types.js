@@ -1,3 +1,5 @@
 export default {
-  EXAMPLE: '@auth/EXAMPLE',
+  USER_LOGIN: '@auth/USER_LOGIN',
+  USER_LOGIN_SUCCESS: '@auth/USER_LOGIN_SUCCESS',
+  USER_LOGIN_FAILURE: '@auth/USER_LOGIN_FAILURE',
 }
