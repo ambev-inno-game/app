@@ -6,11 +6,10 @@ const INITIAL_STATE = {
 
 export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case ACTION_TYPES.example: {
-      console.log('reducer')
+    case ACTION_TYPES.EXAMPLE: {
       return {
         ...state,
-        exampleResult: action.payload.result,
+        exampleResult: 'TESTE',
       }
     }
     default:
