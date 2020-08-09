@@ -3,18 +3,25 @@ module.exports = {
     es2020: true,
   },
   extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    __DEV__: true,
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 11,
     sourceType: 'module',
+    parser: 'babel-eslint',
   },
-  plugins: ['react', 'prettier', 'react-hooks'],
+  plugins: ['react', 'prettier', 'react-hooks', 'import-helpers'],
   rules: {
+    'import/order': 'off',
     'prettier/prettier': 'error',
-    'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
+    'import/prefer-default-export': 'off',
     'jsx-quotes': ['error', 'prefer-single'],
     'react/jsx-props-no-spreading': 'off',
     'no-console': ['error'],
@@ -27,7 +34,46 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-plusplus': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
-    'import/no-unresolved': ['error', { ignore: '@expo/' }],
+    'react/sort-prop-types': [
+      2,
+      {
+        callbacksLast: false,
+        ignoreCase: true,
+        requiredFirst: true,
+        sortShapeProp: true,
+        noSortAlphabetically: false,
+      },
+    ],
+    'react/jsx-sort-default-props': [
+      1,
+      {
+        ignoreCase: true,
+      },
+    ],
+    'react/jsx-sort-props': [
+      2,
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        shorthandLast: false,
+        ignoreCase: true,
+        noSortAlphabetically: false,
+      },
+    ],
+    'import-helpers/order-imports': [
+      'error',
+      {
+        newlinesBetween: 'always',
+        groups: [
+          '/^react/',
+          'module',
+          '/^@/',
+          '/^~/',
+          ['parent', 'sibling', 'index'],
+        ],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
+    ],
   },
   settings: {
     'import/resolver': {

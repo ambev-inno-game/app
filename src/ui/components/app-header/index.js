@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
+
 import { FontAwesome } from '@expo/vector-icons'
+
 import { NavigationService } from '~/services'
 
 import style from './styles'

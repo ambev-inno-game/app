@@ -1,4 +1,4 @@
-import { takeLatest, put, all } from 'redux-saga/effects'
+import { takeLatest, all } from 'redux-saga/effects'
 
 import ACTION_TYPES from './action-types'
 

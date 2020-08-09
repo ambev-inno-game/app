@@ -1,7 +1,9 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { useDispatch } from 'react-redux'
+
+import { StatusBar } from 'expo-status-bar'
+
 import * as authActions from '~/store/modules/auth/actions'
 
 export function HomeScreen() {
