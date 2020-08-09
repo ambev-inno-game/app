@@ -9,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native'
 
 import { NavigationService } from '~/services'
 import { store, persistor } from '~/store'
+import { Loader } from '~/ui/components'
 import { HomeStack, ProfileStack, FaqStack } from '~/ui/stacks'
 
 const Drawer = createDrawerNavigator()
@@ -27,6 +28,7 @@ function App() {
             <Drawer.Screen component={ProfileStack} name='ProfileStack' />
           </Drawer.Navigator>
         </NavigationContainer>
+        <Loader />
       </PersistGate>
     </Provider>
   )

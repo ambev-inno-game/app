@@ -1,4 +1,4 @@
-import { STRINGS } from '~/res'
+import { STRINGS } from '~/res/strings'
 
 export function isRequired(text = '') {
   let message = ''

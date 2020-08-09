@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 
 import { utils } from '~/res'
-import { FormService } from '~/services'
+import { FormService, LoaderService } from '~/services'
 import * as authActions from '~/store/modules/auth/actions'
 import { Button, Input, Form } from '~/ui/components'
 
@@ -42,7 +42,16 @@ export function HomeScreen() {
         />
       </Form>
 
-      <Button onPress={() => console.log('teste')}>Teste</Button>
+      <Button
+        onPress={() => {
+          LoaderService.show()
+          setTimeout(() => {
+            LoaderService.hide()
+          }, 1000)
+        }}
+      >
+        Teste
+      </Button>
     </View>
   )
 }
