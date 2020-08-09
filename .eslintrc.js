@@ -74,6 +74,7 @@ module.exports = {
         alphabetize: { order: 'asc', ignoreCase: true },
       },
     ],
+    'import/no-extraneous-dependencies': 'offurn ',
   },
   settings: {
     'import/resolver': {
