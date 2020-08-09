@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Provider } from 'react-redux'
 
+import { StatusBar } from 'expo-status-bar'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import { createDrawerNavigator } from '@react-navigation/drawer'
@@ -19,6 +20,7 @@ function App() {
         <NavigationContainer
           ref={(navigator) => NavigationService.setNavigator({ navigator })}
         >
+          <StatusBar style='auto' />
           <Drawer.Navigator initialRouteName='HomeScreen'>
             <Drawer.Screen component={HomeStack} name='HomeStack' />
             <Drawer.Screen component={FaqStack} name='FaqStack' />
