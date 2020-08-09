@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { AppHeader } from "../../components";
-import { ProfileScreen } from "../../screens";
+import { AppHeader } from "~/ui/components";
+import { FaqScreen } from "~/ui/screens";
 
 const Stack = createStackNavigator();
 

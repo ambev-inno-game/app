@@ -1,14 +1,11 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { NavigationService } from "../../../services";
-import { useIsDrawerOpen } from "@react-navigation/drawer";
+import { NavigationService } from "~/services";
 
 import style from "./styles";
 
 export function AppHeader() {
-  const isDrawerOpen = useIsDrawerOpen();
-
   function onHamburguerPress() {
     NavigationService.openDrawer();
   }
