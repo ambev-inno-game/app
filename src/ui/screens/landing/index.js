@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Dimensions, Image } from 'react-native'
+import { View, Dimensions, Image } from 'react-native'
 import Carousel from 'react-native-snap-carousel'
 
 import { NavigationService } from '~/services'
@@ -27,10 +27,7 @@ export function LandingScreen() {
         inactiveSlideScale={0.8}
         itemWidth={width - 80}
         renderItem={({ item }) => (
-          <Image
-            source={{ uri: item }}
-            style={{ width: '100%', height: width + width * 0.1 }}
-          />
+          <Image source={{ uri: item }} style={styles.image} />
         )}
         sliderWidth={width}
       />

@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
   container: {
@@ -8,5 +10,10 @@ export default StyleSheet.create({
   },
   buttonContainer: {
     marginHorizontal: 20,
+  },
+  image: {
+    width: '100%',
+    height: width + width * 0.1,
+    borderRadius: 20,
   },
 })

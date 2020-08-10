@@ -1,3 +1,5 @@
+import { API_KEY } from '@env'
+
 import api from '../api'
 
 class _AuthApiService {
@@ -14,6 +16,7 @@ class _AuthApiService {
   async refreshToken({ refreshToken }) {
     const resp = await api.post('/auth/refresh', {
       refreshToken,
+      apiKey: API_KEY,
     })
 
     return resp
