@@ -1,10 +1,9 @@
 import React, { useRef } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { useDispatch } from 'react-redux'
 
 import { utils } from '~/res'
-import { FormService, LoaderService } from '~/services'
-import * as authActions from '~/store/modules/auth/actions'
+import { FormService } from '~/services'
+import { AuthApiService } from '~/services/api'
 import { Button, Input, Form } from '~/ui/components'
 
 const styles = StyleSheet.create({
@@ -40,10 +39,9 @@ export function HomeScreen() {
 
       <Button
         onPress={() => {
-          LoaderService.show()
-          setTimeout(() => {
-            LoaderService.hide()
-          }, 1000)
+          AuthApiService.home().then((resp) => {
+            console.log(resp)
+          })
         }}
       >
         Teste

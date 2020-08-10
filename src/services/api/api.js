@@ -1,26 +1,39 @@
+/* eslint-disable no-param-reassign */
 import axios from 'axios'
 
 import { API_BASE_URL } from '@env'
 
 import { HTTP_STATUS } from '~/res/constants'
+import { store } from '~/store'
+
+import * as apiHelpers from './helpers'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
+})
+
+api.interceptors.request.use((config) => {
+  const { accessToken } = store.getState().auth
+  config.headers.Authorization = accessToken
+
+  return config
 })
 
 api.interceptors.response.use(
   (resp) => {
     return Promise.resolve(resp.data)
   },
-  ({ response, config }) => {
-    const { status } = response
+  (error) => {
+    const { status } = error.response
 
     // TODO verify if 403 is not from refresh token try
     if (status === HTTP_STATUS.FORBIDDEN) {
-      console.log('REFRESH')
+      const { refreshToken } = store.getState().auth
+
+      apiHelpers.refreshTokenAndRetryRequests({ error, refreshToken })
     }
 
-    return Promise.reject(response)
+    return Promise.reject(error)
   }
 )
 

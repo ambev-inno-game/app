@@ -17,3 +17,14 @@ export function loginFailure() {
     type: ACTIONS_TYPES.LOGIN_FAILURE,
   }
 }
+
+export function updateTokensOnState({ accessToken, refreshToken }) {
+  console.log({ accessToken, refreshToken })
+  return {
+    type: ACTIONS_TYPES.UPDATE_TOKENS_ON_STATE,
+    payload: {
+      accessToken,
+      refreshToken,
+    },
+  }
+}

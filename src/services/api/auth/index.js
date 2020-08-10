@@ -20,8 +20,8 @@ class _AuthApiService {
   }
 
   // TODO remove this request
-  async getUser({ id }) {
-    const resp = await api.get(`/user/${id}`)
+  async home() {
+    const resp = await api.get(`/home`)
 
     return resp
   }
