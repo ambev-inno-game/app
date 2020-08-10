@@ -8,7 +8,9 @@ import createStore from './create-store'
 import reducers from './modules/root-reducer'
 import sagas from './modules/root-saga'
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMonitor = __DEV__ ? console.tron.createSagaMonitor() : null
+
+const sagaMiddleware = createSagaMiddleware({ sagaMonitor })
 
 const middlewares = [sagaMiddleware]
 
