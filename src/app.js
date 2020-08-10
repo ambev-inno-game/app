@@ -9,7 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import { NavigationService } from '~/services'
 import { LandingScreen, QuestionsScreen } from '~/ui/screens'
-import { FaqStack, HomeStack, ProfileStack } from '~/ui/stacks'
+import { FaqStack, HomeStack, ProfileStack, MyBox } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
 
@@ -18,9 +18,26 @@ const Drawer = createDrawerNavigator()
 export function DrawerNavigation() {
   return (
     <Drawer.Navigator initialRouteName='HomeScreen'>
-      <Drawer.Screen component={HomeStack} name='HomeStack' />
-      <Drawer.Screen component={FaqStack} name='FaqStack' />
-      <Drawer.Screen component={ProfileStack} name='ProfileStack' />
+      <Drawer.Screen
+        component={ProfileStack}
+        name='ProfileStack'
+        options={{ drawerLabel: 'Perfil' }}
+      />
+      <Drawer.Screen
+        component={HomeStack}
+        name='HomeStack'
+        options={{ drawerLabel: 'Início' }}
+      />
+      <Drawer.Screen
+        component={FaqStack}
+        name='FaqStack'
+        options={{ drawerLabel: 'FAQ' }}
+      />
+      <Drawer.Screen
+        component={MyBox}
+        name='MyBox'
+        options={{ drawerLabel: 'Meu Box' }}
+      />
     </Drawer.Navigator>
   )
 }
