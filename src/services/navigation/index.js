@@ -15,17 +15,17 @@ class _NavigationService {
 
   navigate({ screen, key, params, stack = null }) {
     if (stack) {
-      this.navigator.navigate(stack.NAME, { screen: screen.NAME, key, params })
+      this.navigator.navigate(stack, { screen, key, params })
     } else {
       this.navigator.dispatch(
-        CommonActions.navigate({ name: screen.NAME, key, params })
+        CommonActions.navigate({ name: screen, key, params })
       )
     }
   }
 
   pushReplacement({ screen, params }) {
     this.navigator.dispatch(
-      StackActions.replace(screen.NAME, {
+      StackActions.replace(screen, {
         ...params,
       })
     )
@@ -33,7 +33,7 @@ class _NavigationService {
 
   push({ screen, params }) {
     this.navigator.dispatch(
-      StackActions.push(screen.NAME, {
+      StackActions.push(screen, {
         ...params,
       })
     )
