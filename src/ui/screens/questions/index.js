@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { NavigationService } from '~/services'
-import { Button } from '~/ui/components'
+import { Button, BBText } from '~/ui/components'
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 export function QuestionsScreen() {
   return (
     <View style={styles.container}>
-      <Text>QUESTIONS SCREEN</Text>
+      <BBText>QUESTIONS SCREEN</BBText>
       <Button
         onPress={() => {
           NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
