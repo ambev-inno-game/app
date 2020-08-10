@@ -3,7 +3,7 @@ import axios from 'axios'
 import { store } from '~/store'
 import * as authActions from '~/store/modules/auth/actions'
 
-import { AuthApiService } from './auth'
+import { AuthApiService } from './index'
 
 let isAlreadyFetchingAccessToken = false
 
