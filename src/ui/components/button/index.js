@@ -1,10 +1,11 @@
 import React from 'react'
-import { TouchableOpacity, Text, ActivityIndicator } from 'react-native'
+import { TouchableOpacity, ActivityIndicator } from 'react-native'
 
 import PropTypes from 'prop-types'
 
 import { COLORS } from '~/res'
 
+import { BBText } from '../text'
 import styles from './styles'
 
 export function Button(props) {
@@ -15,7 +16,11 @@ export function Button(props) {
       return <ActivityIndicator color={COLORS.BLACK} />
     }
 
-    return <Text style={styles.label}>{children}</Text>
+    return (
+      <BBText uppercase color={COLORS.BLACK} size={16} style={styles.label}>
+        {children}
+      </BBText>
+    )
   }
 
   return (

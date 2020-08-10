@@ -3,10 +3,12 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import { StatusBar } from 'expo-status-bar'
 
+import { BBText } from '~/ui/components'
+
 export function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <Text>PROFILE</Text>
+      <BBText>PROFILE</BBText>
       <StatusBar style='auto' />
     </View>
   )

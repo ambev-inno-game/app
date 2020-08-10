@@ -14,7 +14,6 @@ export default StyleSheet.create({
   },
   error: {
     position: 'absolute',
-    color: COLORS.RED,
     bottom: -5,
     right: 10,
   },

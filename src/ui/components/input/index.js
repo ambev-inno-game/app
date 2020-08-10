@@ -1,9 +1,12 @@
 import React from 'react'
-import { TextInput, View, Text } from 'react-native'
+import { TextInput, View } from 'react-native'
 
 import { useField } from 'formik'
 import PropTypes from 'prop-types'
 
+import { COLORS } from '~/res'
+
+import { BBText } from '../text'
 import styles from './styles'
 
 export function Input(props) {
@@ -21,7 +24,11 @@ export function Input(props) {
 
   function renderError() {
     if (meta.touched) {
-      return <Text style={styles.error}>{meta.error}</Text>
+      return (
+        <BBText color={COLORS.RED} size={12} style={styles.error}>
+          {meta.error}
+        </BBText>
+      )
     }
 
     return null

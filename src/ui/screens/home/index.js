@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { utils } from '~/res'
 import { FormService } from '~/services'
 import { AuthApiService } from '~/services/api'
-import { Button, Input, Form } from '~/ui/components'
+import { Button, Input, Form, BBText } from '~/ui/components'
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +23,7 @@ export function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>HOME</Text>
+      <BBText>HOME</BBText>
       <Form
         initialValues={{ teste: '' }}
         innerRef={formRef}

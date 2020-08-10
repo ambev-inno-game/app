@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   accessToken:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbCI6ImFub255bW91cyIsImlhdCI6MTU5NzAxMzMzNiwiZXhwIjoxNTk3MDE0NTM2fQ.LOB-gFMVTE4JL02c883kLKnjuztKBNPO4jYXLg7BnJo',
   refreshToken:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWlAaGFja2F0aG9uLWFtYmV2LmNvbSIsImxldmVsIjoibG9nZ2VkIiwiaWF0IjoxNTk3MDIwMTIzLCJleHAiOjE1OTcwNjM5MjN9.6-8fIOXIDGkopeodIckrZtgpLF73ulGtqZv1hD0Gw7g',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWlAaGFja2F0aG9uLWFtYmV2LmNvbSIsImxldmVsIjoibG9nZ2VkIiwiaWF0IjoxNTk3MDk5NjU1LCJleHAiOjE1OTcxNDM0NTV9.eefqm8enH2toA65JapMQfrgZkwdPSw92cmVV6SU74dU',
 }
 
 export default function auth(state = INITIAL_STATE, action) {
