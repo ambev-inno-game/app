@@ -1,8 +1,10 @@
 import React from 'react'
 import { View, Dimensions, Image } from 'react-native'
 import Carousel from 'react-native-snap-carousel'
+import { useDispatch } from 'react-redux'
 
 import { NavigationService } from '~/services'
+import * as authActions from '~/store/modules/auth/actions'
 import { Button } from '~/ui/components'
 
 import styles from './styles'
@@ -16,8 +18,11 @@ const images = [
 const { width } = Dimensions.get('window')
 
 export function LandingScreen() {
+  const dispatch = useDispatch()
+
   function goToQuestions() {
-    NavigationService.pushReplacement({ screen: 'QuestionsScreen' })
+    NavigationService.pushReplacement({ screen: 'AuthStack' })
+    dispatch(authActions.setHasReadTutorial(true))
   }
 
   return (

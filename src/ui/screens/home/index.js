@@ -1,9 +1,10 @@
 import React, { useRef } from 'react'
 import { StyleSheet, View } from 'react-native'
+import { useDispatch } from 'react-redux'
 
 import { utils } from '~/res'
 import { FormService } from '~/services'
-import { AuthApiService } from '~/services/api'
+import * as authActions from '~/store/modules/auth/actions'
 import { Button, Input, Form, BBText } from '~/ui/components'
 
 const styles = StyleSheet.create({
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
 })
 
 export function HomeScreen() {
+  const dispatch = useDispatch()
   const formRef = useRef()
 
   const formService = new FormService()
@@ -39,9 +41,7 @@ export function HomeScreen() {
 
       <Button
         onPress={() => {
-          AuthApiService.home().then((resp) => {
-            console.log(resp)
-          })
+          dispatch(authActions.setHasReadTutorial(false))
         }}
       >
         Teste

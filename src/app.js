@@ -1,5 +1,6 @@
 /* eslint-disable react/style-prop-object */
-import React from 'react'
+import React, { useMemo } from 'react'
+import { useSelector } from 'react-redux'
 
 import { StatusBar } from 'expo-status-bar'
 
@@ -13,6 +14,7 @@ import {
   FaqStack,
   HomeStack,
   ProfileStack,
+  AuthStack,
   MyBoxStack,
   BadgeStack,
   ArticleStack,
@@ -66,15 +68,33 @@ export function DrawerNavigation() {
 }
 
 function App() {
+  const { isLoggedIn, hasReadTutorial } = useSelector((state) => state.auth)
+
+  const initialRouteName = useMemo(() => {
+    if (isLoggedIn) {
+      return 'DrawerNavigation'
+    }
+
+    if (hasReadTutorial) {
+      return 'AuthStack'
+    }
+
+    return 'LandingScreen'
+  }, [isLoggedIn, hasReadTutorial])
+
   return (
     <NavigationContainer
       ref={(navigator) => NavigationService.setNavigator({ navigator })}
     >
       <StatusBar style='auto' />
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        initialRouteName={initialRouteName}
+        screenOptions={{ headerShown: false }}
+      >
         <Stack.Screen component={LandingScreen} name='LandingScreen' />
         <Stack.Screen component={QuestionsScreen} name='QuestionsScreen' />
         <Stack.Screen component={DrawerNavigation} name='DrawerNavigation' />
+        <Stack.Screen component={AuthStack} name='AuthStack' />
       </Stack.Navigator>
     </NavigationContainer>
   )
