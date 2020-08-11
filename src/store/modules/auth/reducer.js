@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   accessToken: '',
   refreshToken: '',
   hasReadTutorial: false,
+  isLoggingIn: false,
 }
 
 export default function auth(state = INITIAL_STATE, action) {
@@ -29,15 +30,28 @@ export default function auth(state = INITIAL_STATE, action) {
         hasReadTutorial: hasRead,
       }
     }
+    case ACTIONS_TYPES.USER_LOGIN: {
+      return {
+        ...state,
+        isLoggingIn: true,
+      }
+    }
     case ACTIONS_TYPES.USER_LOGIN_SUCCESS: {
       const { token, refreshToken } = action.payload
 
       return {
         ...state,
+        isLoggingIn: false,
         isLoggedIn: true,
         authLevel: AUTH_LEVEL.USER,
         accessToken: token,
         refreshToken,
+      }
+    }
+    case ACTIONS_TYPES.USER_LOGIN_FAILURE: {
+      return {
+        ...state,
+        isLoggingIn: false,
       }
     }
     default:

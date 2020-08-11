@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { View } from 'react-native'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { utils } from '~/res'
 import { FormService, NavigationService } from '~/services'
@@ -12,6 +12,8 @@ import styles from './styles'
 export function LoginScreen() {
   const formRef = useRef(null)
   const dispatch = useDispatch()
+
+  const { isLoggingIn } = useSelector((state) => state.auth)
 
   const formService = new FormService()
 
@@ -40,6 +42,7 @@ export function LoginScreen() {
         />
       </Form>
       <Button
+        isLoading={isLoggingIn}
         onPress={() => {
           formRef.current.handleSubmit()
         }}
