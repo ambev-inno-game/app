@@ -31,6 +31,8 @@ export const COLORS = {
   SILVER: '#CCCCCC',
   BLACK: '#000000',
   RED: '#FF0000',
+  ALTO: '#DBDBDB',
+  DOVE_GRAY: '#707070',
 
   WHITE_OPACITY_80: alphaToHex({ color: '#FFFFFF', alpha: 80 }),
 }

@@ -30,7 +30,7 @@ BBText.propTypes = {
 }
 
 BBText.defaultProps = {
-  color: COLORS.BLACK,
+  color: COLORS.DOVE_GRAY,
   size: 14,
   style: {},
   uppercase: false,
