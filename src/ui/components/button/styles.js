@@ -14,8 +14,6 @@ export default StyleSheet.create({
     marginVertical: 15,
   },
   label: {
-    fontSize: 17,
-    fontWeight: 'bold',
     letterSpacing: 1.2,
   },
 })

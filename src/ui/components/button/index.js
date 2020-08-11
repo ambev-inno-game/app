@@ -17,7 +17,7 @@ export function Button(props) {
     }
 
     return (
-      <BBText color={COLORS.BLACK} size={16} style={styles.label}>
+      <BBText color={COLORS.BLACK} size={17} style={styles.label}>
         {children}
       </BBText>
     )

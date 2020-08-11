@@ -9,7 +9,6 @@ export default StyleSheet.create({
     width: '100%',
   },
   label: {
-    fontSize: 17,
     textDecorationLine: "underline"
   },
 })

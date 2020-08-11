@@ -17,7 +17,7 @@ export function Link(props) {
     }
 
     return (
-      <BBText size={10} style={styles.label}>
+      <BBText size={17} style={styles.label}>
         {children}
       </BBText>
     )
