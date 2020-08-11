@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { utils } from '~/res'
 import { FormService, NavigationService } from '~/services'
 import * as authActions from '~/store/modules/auth/actions'
-import { Button, Input, Form, BBText } from '~/ui/components'
+import { Button, Input, Form, BBText, Link } from '~/ui/components'
 import { AntDesign } from '@expo/vector-icons';
 
 import styles from './styles'
@@ -58,14 +58,22 @@ export function LoginScreen() {
           <AntDesign name='facebook-square' size={30} color='black' />
           <AntDesign name='google' size={30} color='black' />
         </View>
-        <Button
-          onPress={() => {
-            NavigationService.navigate({ screen: 'QuestionsScreen' })
-          }}
-        >
-          Continuar sem login
-        </Button>
+        <View style={styles.anotherLogin}>
+          <View style={styles.newAccount}>
+            <BBText style={styles.subtitle}>Não possui uma conta? Criar</BBText>
+          </View>
+          <View style={styles.line} />
+          <View style={{ alignItems: "center" }}>
+            <Link
+              onPress={() => {
+                NavigationService.navigate({ screen: 'QuestionsScreen' })
+              }}
+            >
+              Continuar sem login
+            </Link>
+          </View>
+        </View>
       </View>
-    </View>
+    </View >
   )
 }

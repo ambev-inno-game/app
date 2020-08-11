@@ -18,7 +18,6 @@ export default StyleSheet.create({
     marginTop: 5,
   },
   subcontent: {
-    display: "flex",
     alignItems: "center",
     flexDirection: "column",
   },
@@ -27,11 +26,22 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   icons: {
-    display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "baseline",
     width: "40%",
     marginTop: 15,
   },
+  newAccount: {
+    alignItems: "center"
+  },
+  anotherLogin: {
+    top: 130,
+    width: "100%"
+  },
+  line: {
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    margin: 10,
+  }
 })
