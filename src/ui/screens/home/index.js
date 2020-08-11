@@ -3,8 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 
 import { utils } from '~/res'
-import { FormService } from '~/services'
-import * as authActions from '~/store/modules/auth/actions'
+import { FormService, ToastService } from '~/services'
 import { Button, Input, Form, BBText } from '~/ui/components'
 
 const styles = StyleSheet.create({
@@ -18,7 +17,6 @@ const styles = StyleSheet.create({
 })
 
 export function HomeScreen() {
-  const dispatch = useDispatch()
   const formRef = useRef()
 
   const formService = new FormService()
@@ -41,7 +39,7 @@ export function HomeScreen() {
 
       <Button
         onPress={() => {
-          dispatch(authActions.setHasReadTutorial(false))
+          ToastService.show({ message: 'Este é um toast de teste' })
         }}
       >
         Teste

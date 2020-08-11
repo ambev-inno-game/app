@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import { store, persistor } from '~/store'
-import { Loader } from '~/ui/components'
+import { Loader, Toast } from '~/ui/components'
 
 import App from './app'
 
@@ -19,6 +19,7 @@ function Main() {
       <PersistGate persistor={persistor}>
         <App />
         <Loader />
+        <Toast />
       </PersistGate>
     </Provider>
   )

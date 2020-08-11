@@ -28,7 +28,7 @@ const Drawer = createDrawerNavigator()
 
 export function DrawerNavigation() {
   return (
-    <Drawer.Navigator initialRouteName='HomeScreen'>
+    <Drawer.Navigator initialRouteName='HomeStack'>
       <Drawer.Screen
         component={ProfileStack}
         name='ProfileStack'

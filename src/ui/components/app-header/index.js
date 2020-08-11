@@ -14,7 +14,7 @@ export function AppHeader() {
 
   return (
     <View style={style.container}>
-      <TouchableOpacity onPress={onHamburguerPress}>
+      <TouchableOpacity style={{ padding: 5 }} onPress={onHamburguerPress}>
         <FontAwesome name='navicon' size={25} />
       </TouchableOpacity>
     </View>

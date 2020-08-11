@@ -7,6 +7,7 @@ export default StyleSheet.create({
     height: 90,
     padding: 20,
     justifyContent: 'flex-end',
+    alignItems: 'flex-start',
     backgroundColor: COLORS.WHITE,
   },
 })
