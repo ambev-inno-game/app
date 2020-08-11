@@ -50,18 +50,15 @@ export function LandingScreen() {
   return (
     <View style={styles.container}>
       {renderCarouselSteps()}
-      {/* <BBText color={COLORS.DOVE_GRAY} size={22} style={styles.title}>
-        {'Mussum ipsum,\ncacildis vidis'}
-      </BBText> */}
       <Carousel
         data={images}
-        inactiveSlideScale={0.8}
-        itemWidth={width - 80}
+        inactiveSlideScale={1}
+        itemWidth={width}
         ref={carouselRef}
         renderItem={({ item }) => (
           <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ marginTop: 20 }}
+            style={styles.scrollView}
           >
             <Image source={{ uri: item }} style={styles.image} />
             <View>

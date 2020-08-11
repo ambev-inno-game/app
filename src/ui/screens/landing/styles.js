@@ -26,4 +26,8 @@ export default StyleSheet.create({
   carouselSubtitle: {
     textAlign: 'center',
   },
+  scrollView: {
+    marginTop: 20,
+    marginHorizontal: 40,
+  },
 })
