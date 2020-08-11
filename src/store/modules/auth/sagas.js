@@ -6,8 +6,6 @@ import { AuthApiService } from '~/services/api'
 import ACTION_TYPES from './action-types'
 import * as authActions from './actions'
 
-// admi@hackathon-ambev.com
-// batata
 export function* userLogin({ payload }) {
   try {
     const { email, password } = payload
