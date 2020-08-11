@@ -1,12 +1,14 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { StatusBar } from 'expo-status-bar'
+
+import { BBText } from '~/ui/components'
 
 export function FaqScreen() {
   return (
     <View style={styles.container}>
-      <Text>FAQ</Text>
+      <BBText>FAQ</BBText>
       <StatusBar style='auto' />
     </View>
   )

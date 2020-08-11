@@ -1,14 +1,14 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { StatusBar } from 'expo-status-bar'
 
 import { BBText } from '~/ui/components'
 
-export function ProfileScreen() {
+export function MyBoxScreen() {
   return (
     <View style={styles.container}>
-      <BBText>PROFILE</BBText>
+      <BBText>My Box</BBText>
       <StatusBar style='auto' />
     </View>
   )

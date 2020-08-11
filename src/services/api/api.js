@@ -31,6 +31,7 @@ api.interceptors.response.use(
       const { refreshToken } = store.getState().auth
 
       apiHelpers.refreshTokenAndRetryRequests({ error, refreshToken })
+      return true
     }
 
     return Promise.reject(error)

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { store } from '~/store'
 import * as authActions from '~/store/modules/auth/actions'
 
-import { AuthApiService } from './auth'
+import { AuthApiService } from './index'
 
 let isAlreadyFetchingAccessToken = false
 
@@ -46,13 +46,13 @@ export async function refreshTokenAndRetryRequests({ error, refreshToken }) {
       isAlreadyFetchingAccessToken = true
 
       const {
-        loggedToken,
+        token,
         refreshToken: newRefreshToken,
       } = await AuthApiService.refreshToken({
         refreshToken,
       })
 
-      if (!loggedToken || !refreshToken) {
+      if (!token || !refreshToken) {
         return Promise.reject(error)
       }
 
@@ -63,7 +63,7 @@ export async function refreshTokenAndRetryRequests({ error, refreshToken }) {
         })
       ) // save the newly refreshed token for other requests to use
       isAlreadyFetchingAccessToken = false
-      onAccessTokenFetched(loggedToken)
+      onAccessTokenFetched(token)
     }
 
     return retryOriginalRequest

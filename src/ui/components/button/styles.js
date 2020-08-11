@@ -14,10 +14,7 @@ export default StyleSheet.create({
     marginVertical: 15,
   },
   label: {
-    color: COLORS.BLACK,
-    textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontSize: 16,
     letterSpacing: 1.2,
   },
 })

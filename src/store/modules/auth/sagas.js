@@ -1,4 +1,4 @@
-import { takeLatest, all, call, put } from 'redux-saga/effects'
+import { takeLatest, all } from 'redux-saga/effects'
 
 import { API_KEY } from '@env'
 
