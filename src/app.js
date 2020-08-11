@@ -15,6 +15,7 @@ import {
   ProfileStack,
   MyBoxStack,
   BadgeStack,
+  ArticleStack,
 } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
@@ -48,6 +49,11 @@ export function DrawerNavigation() {
         component={BadgeStack}
         name='BadgeStack'
         options={{ drawerLabel: 'Meus Pontos' }}
+      />
+      <Drawer.Screen
+        component={ArticleStack}
+        name='ArticleStack'
+        options={{ drawerLabel: 'Ambev Recicla' }}
       />
     </Drawer.Navigator>
   )
