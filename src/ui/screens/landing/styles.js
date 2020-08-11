@@ -1,19 +1,29 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const { width } = Dimensions.get('window')
-
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 80,
+    paddingTop: 30,
   },
   buttonContainer: {
     marginHorizontal: 20,
   },
   image: {
     width: '100%',
-    height: width + width * 0.1,
-    borderRadius: 20,
+    height: 310,
+    borderRadius: 15,
+  },
+  title: {
+    fontWeight: 'bold',
+    marginLeft: 25,
+    marginVertical: 25,
+  },
+  carouselTitle: {
+    marginVertical: 20,
+    textAlign: 'center',
+  },
+  carouselSubtitle: {
+    textAlign: 'center',
   },
 })
