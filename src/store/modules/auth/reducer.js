@@ -1,12 +1,13 @@
+import { AUTH_LEVEL } from '~/res/constants'
+
 import ACTIONS_TYPES from './action-types'
 
 const INITIAL_STATE = {
   isLoggedIn: false,
   authLevel: '',
-  accessToken:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbCI6ImFub255bW91cyIsImlhdCI6MTU5NzAxMzMzNiwiZXhwIjoxNTk3MDE0NTM2fQ.LOB-gFMVTE4JL02c883kLKnjuztKBNPO4jYXLg7BnJo',
-  refreshToken:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWlAaGFja2F0aG9uLWFtYmV2LmNvbSIsImxldmVsIjoibG9nZ2VkIiwiaWF0IjoxNTk3MDk5NjU1LCJleHAiOjE1OTcxNDM0NTV9.eefqm8enH2toA65JapMQfrgZkwdPSw92cmVV6SU74dU',
+  accessToken: '',
+  refreshToken: '',
+  hasReadTutorial: false,
 }
 
 export default function auth(state = INITIAL_STATE, action) {
@@ -17,6 +18,25 @@ export default function auth(state = INITIAL_STATE, action) {
       return {
         ...state,
         accessToken,
+        refreshToken,
+      }
+    }
+    case ACTIONS_TYPES.SET_HAS_READ_TUTORIAL: {
+      const { hasRead } = action.payload
+
+      return {
+        ...state,
+        hasReadTutorial: hasRead,
+      }
+    }
+    case ACTIONS_TYPES.USER_LOGIN_SUCCESS: {
+      const { token, refreshToken } = action.payload
+
+      return {
+        ...state,
+        isLoggedIn: true,
+        authLevel: AUTH_LEVEL.USER,
+        accessToken: token,
         refreshToken,
       }
     }

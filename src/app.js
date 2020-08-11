@@ -1,5 +1,6 @@
 /* eslint-disable react/style-prop-object */
-import React from 'react'
+import React, { useMemo } from 'react'
+import { useSelector } from 'react-redux'
 
 import { StatusBar } from 'expo-status-bar'
 
@@ -9,7 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import { NavigationService } from '~/services'
 import { LandingScreen, QuestionsScreen } from '~/ui/screens'
-import { FaqStack, HomeStack, ProfileStack } from '~/ui/stacks'
+import { FaqStack, HomeStack, ProfileStack, AuthStack } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
 
@@ -26,15 +27,33 @@ export function DrawerNavigation() {
 }
 
 function App() {
+  const { isLoggedIn, hasReadTutorial } = useSelector((state) => state.auth)
+
+  const initialRouteName = useMemo(() => {
+    if (isLoggedIn) {
+      return 'DrawerNavigation'
+    }
+
+    if (hasReadTutorial) {
+      return 'AuthStack'
+    }
+
+    return 'LandingScreen'
+  }, [isLoggedIn, hasReadTutorial])
+
   return (
     <NavigationContainer
       ref={(navigator) => NavigationService.setNavigator({ navigator })}
     >
       <StatusBar style='auto' />
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        initialRouteName={initialRouteName}
+        screenOptions={{ headerShown: false }}
+      >
         <Stack.Screen component={LandingScreen} name='LandingScreen' />
         <Stack.Screen component={QuestionsScreen} name='QuestionsScreen' />
         <Stack.Screen component={DrawerNavigation} name='DrawerNavigation' />
+        <Stack.Screen component={AuthStack} name='AuthStack' />
       </Stack.Navigator>
     </NavigationContainer>
   )
