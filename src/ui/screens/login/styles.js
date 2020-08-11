@@ -8,4 +8,30 @@ export default StyleSheet.create({
     backgroundColor: COLORS.WHITE,
     flex: 1,
   },
+  title: {
+    fontSize: 23,
+    fontWeight: "bold",
+    marginTop: 20,
+  },
+  subtitle: {
+    fontSize: 17,
+    marginTop: 5,
+  },
+  subcontent: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+  textContent: {
+    fontSize: 17,
+    alignItems: "center",
+  },
+  icons: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "baseline",
+    width: "40%",
+    marginTop: 15,
+  },
 })
