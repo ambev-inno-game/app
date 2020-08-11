@@ -20,8 +20,8 @@ export function LoginScreen() {
 
   return (
     <View style={styles.container}>
-      <BBText style={styles.title}>Login</BBText>
-      <BBText style={styles.subtitle}>Por favor, efetue o login da sua conta.</BBText>
+      <BBText size={23} style={styles.title}>Login</BBText>
+      <BBText size={17} style={styles.subtitle}>Por favor, efetue o login da sua conta.</BBText>
       <Form
         initialValues={{ email: '', password: '' }}
         innerRef={formRef}
@@ -60,7 +60,7 @@ export function LoginScreen() {
         </View>
         <View style={styles.anotherLogin}>
           <View style={styles.newAccount}>
-            <BBText style={styles.subtitle}>Não possui uma conta? Criar</BBText>
+            <BBText size={17} style={styles.subtitle}>Não possui uma conta? Criar</BBText>
           </View>
           <View style={styles.line} />
           <View style={{ alignItems: "center" }}>

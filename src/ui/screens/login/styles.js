@@ -9,21 +9,15 @@ export default StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 23,
     fontWeight: "bold",
     marginTop: 20,
   },
   subtitle: {
-    fontSize: 17,
     marginTop: 5,
   },
   subcontent: {
     alignItems: "center",
     flexDirection: "column",
-  },
-  textContent: {
-    fontSize: 17,
-    alignItems: "center",
   },
   icons: {
     flexDirection: "row",
@@ -40,7 +34,7 @@ export default StyleSheet.create({
     width: "100%"
   },
   line: {
-    borderBottomColor: "black",
+    borderBottomColor: COLORS.DOVE_GRAY,
     borderBottomWidth: 1,
     margin: 10,
   }
