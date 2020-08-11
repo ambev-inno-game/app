@@ -3,11 +3,11 @@ import { API_KEY } from '@env'
 import api from '../api'
 
 class _AuthApiService {
-  async useLogin({ email, password, apiKey }) {
+  async userLogin({ email, password }) {
     const resp = await api.post('/login', {
       email,
       password,
-      apiKey,
+      apiKey: API_KEY,
     })
 
     return resp

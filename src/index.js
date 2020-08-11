@@ -1,6 +1,7 @@
 import './config/reactotron'
 
 import React from 'react'
+import { YellowBox } from 'react-native'
 import { Provider } from 'react-redux'
 
 import { PersistGate } from 'redux-persist/integration/react'
@@ -11,6 +12,8 @@ import { Loader } from '~/ui/components'
 import App from './app'
 
 function Main() {
+  YellowBox.ignoreWarnings(['Require cycles are allowed'])
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>

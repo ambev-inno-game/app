@@ -26,7 +26,7 @@ export function Input(props) {
     if (meta.touched) {
       return (
         <BBText color={COLORS.RED} size={12} style={styles.error}>
-          {meta.error}
+          {meta.error || ''}
         </BBText>
       )
     }
