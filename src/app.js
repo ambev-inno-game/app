@@ -9,7 +9,13 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import { NavigationService } from '~/services'
 import { LandingScreen, QuestionsScreen } from '~/ui/screens'
-import { FaqStack, HomeStack, ProfileStack, MyBox } from '~/ui/stacks'
+import {
+  FaqStack,
+  HomeStack,
+  ProfileStack,
+  MyBoxStack,
+  BadgeStack,
+} from '~/ui/stacks'
 
 const Stack = createStackNavigator()
 
@@ -34,9 +40,14 @@ export function DrawerNavigation() {
         options={{ drawerLabel: 'FAQ' }}
       />
       <Drawer.Screen
-        component={MyBox}
-        name='MyBox'
+        component={MyBoxStack}
+        name='MyBoxStack'
         options={{ drawerLabel: 'Meu Box' }}
+      />
+      <Drawer.Screen
+        component={BadgeStack}
+        name='BadgeStack'
+        options={{ drawerLabel: 'Meus Pontos' }}
       />
     </Drawer.Navigator>
   )

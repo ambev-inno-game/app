@@ -5,10 +5,10 @@ import { StatusBar } from 'expo-status-bar'
 
 import { BBText } from '~/ui/components'
 
-export function MyBoxScreen() {
+export function BadgeScreen() {
   return (
     <View style={styles.container}>
-      <BBText>My Box</BBText>
+      <BBText>Badge Screen</BBText>
       <StatusBar style='auto' />
     </View>
   )

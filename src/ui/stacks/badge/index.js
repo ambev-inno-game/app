@@ -3,14 +3,14 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { AppHeader } from '~/ui/components'
-import { MyBoxScreen } from '~/ui/screens'
+import { BadgeScreen } from '~/ui/screens'
 
 const Stack = createStackNavigator()
 
-export function MyBoxStack() {
+export function BadgeStack() {
   return (
     <Stack.Navigator screenOptions={{ header: () => <AppHeader /> }}>
-      <Stack.Screen component={MyBoxScreen} name='MyBoxScreen' />
+      <Stack.Screen component={BadgeScreen} name='BadgeScreen' />
     </Stack.Navigator>
   )
 }
