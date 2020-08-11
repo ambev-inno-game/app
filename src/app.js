@@ -18,6 +18,8 @@ import {
   MyBoxStack,
   BadgeStack,
   ArticleStack,
+  DiscardStack,
+  CollectionPointStack,
 } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
@@ -56,6 +58,16 @@ export function DrawerNavigation() {
         component={ArticleStack}
         name='ArticleStack'
         options={{ drawerLabel: 'Ambev Recicla' }}
+      />
+      <Drawer.Screen
+        component={DiscardStack}
+        name='DiscardStack'
+        options={{ drawerLabel: 'Descarte Bem' }}
+      />
+      <Drawer.Screen
+        component={CollectionPointStack}
+        name='CollectionPointStack'
+        options={{ drawerLabel: 'Pontos de Coleta' }}
       />
     </Drawer.Navigator>
   )
