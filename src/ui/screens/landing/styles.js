@@ -8,6 +8,7 @@ export default StyleSheet.create({
   },
   buttonContainer: {
     marginHorizontal: 20,
+    marginBottom: 20,
   },
   image: {
     width: '100%',

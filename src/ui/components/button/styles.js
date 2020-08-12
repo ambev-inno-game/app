@@ -7,6 +7,7 @@ export default StyleSheet.create({
     height: 50,
     borderWidth: 1,
     borderColor: COLORS.SILVER,
+    backgroundColor: COLORS.ALTO,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',

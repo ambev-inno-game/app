@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
 import * as authActions from '~/store/modules/auth/actions'
-import { Button, BBText } from '~/ui/components'
+import { Button, BBText, Link } from '~/ui/components'
 
 import { CarouselSteps } from './components'
 import styles from './styles'
@@ -29,7 +29,7 @@ export function LandingScreen() {
     setCurrentSlideIndex(i)
   }
 
-  function goToQuestions() {
+  function skip() {
     NavigationService.pushReplacement({ screen: 'AuthStack' })
     dispatch(authActions.setHasReadTutorial(true))
   }
@@ -77,6 +77,7 @@ export function LandingScreen() {
       />
       <View style={styles.buttonContainer}>
         <Button onPress={next}>Avançar</Button>
+        <Link onPress={skip}>Pular tutorial</Link>
       </View>
     </View>
   )
