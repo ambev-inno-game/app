@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { NavigationService } from '~/services'
-import { LandingScreen, QuestionsScreen, DevelopmentScreen } from '~/ui/screens'
+import { LandingScreen, DevelopmentScreen } from '~/ui/screens'
 import {
   FaqStack,
   HomeStack,
@@ -20,6 +20,7 @@ import {
   ArticleStack,
   DiscardStack,
   CollectionPointStack,
+  QuestionsStack,
 } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
@@ -98,7 +99,7 @@ function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen component={LandingScreen} name='LandingScreen' />
-        <Stack.Screen component={QuestionsScreen} name='QuestionsScreen' />
+        <Stack.Screen component={QuestionsStack} name='QuestionsStack' />
         <Stack.Screen component={DevelopmentScreen} name='DevelopmentScreen' />
         <Stack.Screen component={DrawerNavigation} name='DrawerNavigation' />
         <Stack.Screen component={AuthStack} name='AuthStack' />
