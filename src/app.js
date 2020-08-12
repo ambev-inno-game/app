@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { NavigationService } from '~/services'
-import { LandingScreen, QuestionsScreen } from '~/ui/screens'
+import { LandingScreen, QuestionsScreen, DevelopmentScreen } from '~/ui/screens'
 import {
   FaqStack,
   HomeStack,
@@ -99,6 +99,7 @@ function App() {
       >
         <Stack.Screen component={LandingScreen} name='LandingScreen' />
         <Stack.Screen component={QuestionsScreen} name='QuestionsScreen' />
+        <Stack.Screen component={DevelopmentScreen} name='DevelopmentScreen' />
         <Stack.Screen component={DrawerNavigation} name='DrawerNavigation' />
         <Stack.Screen component={AuthStack} name='AuthStack' />
       </Stack.Navigator>
