@@ -20,7 +20,7 @@ export function QuestionsScreen() {
       <BBText>QUESTIONS SCREEN</BBText>
       <Button
         onPress={() => {
-          NavigationService.pushReplacement({ screen: 'NameScreen' })
+          NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
         }}
       >
         IR PARA O APP
