@@ -84,7 +84,7 @@ export function LoginScreen() {
         <View style={{ alignItems: 'center' }}>
           <Link
             onPress={() => {
-              NavigationService.navigate({ screen: 'QuestionsScreen' })
+              NavigationService.navigate({ screen: 'QuestionsStack' })
             }}
           >
             Continuar sem login
