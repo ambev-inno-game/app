@@ -14,11 +14,12 @@ export function Input(props) {
 
   const [field, meta, helpers] = useField(props)
 
-  function onFocus() {
+  function onBlur() {
     helpers.setTouched(true)
   }
 
   function onChange({ nativeEvent }) {
+    helpers.setTouched(true)
     helpers.setValue(nativeEvent.text)
   }
 
@@ -41,8 +42,8 @@ export function Input(props) {
         ref={innerRef}
         style={styles.input}
         value={field.value}
+        onBlur={onBlur}
         onChange={onChange}
-        onFocus={onFocus}
         {...otherProps}
       />
       {renderError()}

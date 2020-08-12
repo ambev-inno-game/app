@@ -23,7 +23,7 @@ export function Loader() {
         EventEmitter.remove(showEventId)
       }
       if (hideEventId) {
-        EventEmitter.hideEventId(hideEventId)
+        EventEmitter.remove(hideEventId)
       }
     }
   }, [])
