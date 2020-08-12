@@ -2,6 +2,7 @@ import EventEmitter from 'sm-event-emitter'
 
 class _LoaderService {
   constructor() {
+    this.context = 'LoaderService'
     this.isLoading = false
   }
 

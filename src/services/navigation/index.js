@@ -6,6 +6,7 @@ import {
 
 class _NavigationService {
   constructor() {
+    this.context = 'NavigationService'
     this.navigator = null
   }
 

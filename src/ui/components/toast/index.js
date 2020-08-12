@@ -58,7 +58,9 @@ export function Toast() {
               animateToast({ show: false })
             }}
           >
-            <BBText size={16}>{message}</BBText>
+            <BBText size={16} type='secondary-bold'>
+              {message}
+            </BBText>
           </TouchableOpacity>
         </Animated.View>
       )
