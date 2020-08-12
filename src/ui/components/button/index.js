@@ -9,7 +9,7 @@ import { BBText } from '../text'
 import styles from './styles'
 
 export function Button(props) {
-  const { onPress, children, isLoading } = props
+  const { onPress, children, isLoading, style, ...otherProps } = props
 
   function renderLabel() {
     if (isLoading) {
@@ -26,8 +26,9 @@ export function Button(props) {
   return (
     <TouchableOpacity
       activeOpacity={0.6}
-      style={styles.button}
+      style={[styles.button, style]}
       onPress={onPress}
+      {...otherProps}
     >
       {renderLabel()}
     </TouchableOpacity>
