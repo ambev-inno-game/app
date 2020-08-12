@@ -43,6 +43,7 @@ export function LoginScreen() {
             onSubmitEditing={() => formService.setFocus('password')}
           />
           <Input
+            secureTextEntry
             innerRef={(ref) => formService.saveInputRef(ref, 'password')}
             name='password'
             placeholder='Senha'

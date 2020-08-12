@@ -22,9 +22,12 @@ export function userLoginSuccess({ name, email, token, refreshToken }) {
   }
 }
 
-export function userLoginFailure() {
+export function userLoginFailure({ message }) {
   return {
     type: ACTIONS_TYPES.USER_LOGIN_FAILURE,
+    payload: {
+      message,
+    },
   }
 }
 

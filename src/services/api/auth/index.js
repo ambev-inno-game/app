@@ -3,6 +3,10 @@ import { API_KEY } from '@env'
 import api from '../api'
 
 class _AuthApiService {
+  constructor() {
+    this.context = 'AuthApiService'
+  }
+
   async userLogin({ email, password }) {
     const resp = await api.post('/login', {
       email,
