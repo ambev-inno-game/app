@@ -8,7 +8,7 @@ import { COLORS } from '~/res'
 import styles from './styles'
 
 export function BBText(props) {
-  const { children, color, uppercase, size, style } = props
+  const { children, color, uppercase, size, style, ...otherProps } = props
 
   const textCustomStyle = useMemo(() => {
     return {
@@ -18,7 +18,11 @@ export function BBText(props) {
     }
   }, [color, uppercase, size])
 
-  return <Text style={[textCustomStyle, style]}>{children}</Text>
+  return (
+    <Text style={[textCustomStyle, style]} {...otherProps}>
+      {children}
+    </Text>
+  )
 }
 
 BBText.propTypes = {
