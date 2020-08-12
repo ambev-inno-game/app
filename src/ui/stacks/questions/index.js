@@ -11,8 +11,8 @@ const Stack = createStackNavigator()
 export function QuestionsStack() {
   return (
     <Stack.Navigator screenOptions={{ header: () => <View /> }}>
-      <Stack.Screen component={QuestionsScreen} name='QuestionsScreen' />
       <Stack.Screen component={NameScreen} name='NameScreen' />
+      <Stack.Screen component={QuestionsScreen} name='QuestionsScreen' />
     </Stack.Navigator>
   )
 }

@@ -12,7 +12,7 @@ export function NameScreen() {
       <BBText>Name Screen</BBText>
       <Button
         onPress={() => {
-          NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
+          NavigationService.pushReplacement({ screen: 'QuestionsScreen' })
         }}
       >
         IR PARA O APP
