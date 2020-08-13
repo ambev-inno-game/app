@@ -26,7 +26,6 @@ api.interceptors.response.use(
   (error) => {
     const { status } = error.response
 
-    // TODO verify if 403 is not from refresh token try
     if (status === HTTP_STATUS.FORBIDDEN) {
       const { refreshToken } = store.getState().auth
 
