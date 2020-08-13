@@ -8,8 +8,9 @@ import { BBText } from '~/ui/components'
 export function BadgeScreen() {
   return (
     <View style={styles.container}>
-      <BBText>Badge Screen</BBText>
-      <StatusBar style='auto' />
+      <BBText size={20} type='secondary-bold'>
+        Seus pontos e seu avanço na gameficação da nossa aplicação.
+      </BBText>
     </View>
   )
 }
@@ -19,6 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 })

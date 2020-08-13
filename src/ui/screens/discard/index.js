@@ -1,15 +1,14 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import { StatusBar } from 'expo-status-bar'
-
 import { BBText } from '~/ui/components'
 
 export function DiscardScreen() {
   return (
     <View style={styles.container}>
-      <BBText>Discard Screen</BBText>
-      <StatusBar style='auto' />
+      <BBText size={20} type='secondary-bold'>
+        Dicas para você descartar os seus produtos da forma correta.
+      </BBText>
     </View>
   )
 }
@@ -19,6 +18,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 })

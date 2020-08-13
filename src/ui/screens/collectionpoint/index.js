@@ -8,8 +8,9 @@ import { BBText } from '~/ui/components'
 export function CollectionPointScreen() {
   return (
     <View style={styles.container}>
-      <BBText>Collection Point</BBText>
-      <StatusBar style='auto' />
+      <BBText size={20} type='secondary-bold'>
+        Mapa com os pontos de coleta próximos a você
+      </BBText>
     </View>
   )
 }
@@ -19,6 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 })

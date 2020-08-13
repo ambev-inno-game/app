@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { View } from 'react-native'
 
-import { FormService, HomeApiService, LoaderService } from '~/services'
+import { HomeApiService, LoaderService } from '~/services'
+import { BBText } from '~/ui/components'
 
 import styles from './styles'
 
@@ -20,5 +21,12 @@ export function HomeScreen() {
     getHomeData()
   }, [])
 
-  return <View style={styles.container} />
+  return (
+    <View style={styles.container}>
+      <BBText size={20} type='secondary-bold'>
+        Nesta tela você terá acesso aos principais produtos da nossa aplicação,
+        bem como a criação do seu próprio box.
+      </BBText>
+    </View>
+  )
 }

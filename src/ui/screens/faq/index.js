@@ -8,8 +8,9 @@ import { BBText } from '~/ui/components'
 export function FaqScreen() {
   return (
     <View style={styles.container}>
-      <BBText>FAQ</BBText>
-      <StatusBar style='auto' />
+      <BBText size={20} type='secondary-bold'>
+        Perguntas frequentes e acesso a nossa central de atendimento.
+      </BBText>
     </View>
   )
 }
@@ -19,6 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 })

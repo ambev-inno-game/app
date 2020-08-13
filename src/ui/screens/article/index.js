@@ -8,8 +8,9 @@ import { BBText } from '~/ui/components'
 export function ArticleScreen() {
   return (
     <View style={styles.container}>
-      <BBText>Article Screen</BBText>
-      <StatusBar style='auto' />
+      <BBText size={20} type='secondary-bold'>
+        Artigos sobre as principais noticias sobre meio ambiente.
+      </BBText>
     </View>
   )
 }
@@ -19,6 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 })

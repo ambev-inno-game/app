@@ -8,7 +8,9 @@ import { BBText } from '~/ui/components'
 export function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <BBText>PROFILE</BBText>
+      <BBText size={20} type='secondary-bold'>
+        Nesta tela você terá acesso aos seus dados cadastrais.
+      </BBText>
       <StatusBar style='auto' />
     </View>
   )
@@ -19,6 +21,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 })
