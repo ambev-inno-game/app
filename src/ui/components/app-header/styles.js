@@ -5,9 +5,16 @@ import { COLORS } from '~/res'
 export default StyleSheet.create({
   container: {
     height: 90,
-    padding: 20,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
+    padding: 10,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
     backgroundColor: COLORS.WHITE,
+    flexDirection: 'row',
+  },
+
+  buttonContainer: {
+    position: 'absolute',
+    left: 10,
+    bottom: 15,
   },
 })
