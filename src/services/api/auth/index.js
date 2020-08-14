@@ -8,20 +8,34 @@ class _AuthApiService {
   }
 
   async userLogin({ email, password }) {
-    const resp = await api.post('/login', {
-      email,
-      password,
-      apiKey: API_KEY,
-    })
+    const resp = await api.post(
+      '/login',
+      {
+        email,
+        password,
+      },
+      {
+        headers: {
+          apiKey: API_KEY,
+        },
+      }
+    )
 
     return resp
   }
 
   async refreshToken({ refreshToken }) {
-    const resp = await api.post('/auth/refresh', {
-      refreshToken,
-      apiKey: API_KEY,
-    })
+    const resp = await api.post(
+      '/auth/refresh',
+      {
+        refreshToken,
+      },
+      {
+        headers: {
+          apiKey: API_KEY,
+        },
+      }
+    )
 
     return resp
   }
