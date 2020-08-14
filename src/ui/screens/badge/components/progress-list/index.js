@@ -3,39 +3,30 @@ import { FlatList, View } from 'react-native'
 
 import PropTypes from 'prop-types'
 
+import { BBText } from '~/ui/components'
+
+import styles from './styles'
+
 export function ProgressList(props) {
   const { data } = props
 
+  function renderProgress() {
+    return data.map((item) => (
+      <View key={item.id} style={styles.itemContainer}>
+        <View style={styles.itemLeftContainer}>
+          <View style={styles.itemDot} />
+          <BBText size={16}>{`${item.date} - ${item.title}`}</BBText>
+        </View>
+        <BBText size={16}>{`${item.points} pts`}</BBText>
+      </View>
+    ))
+  }
+
   return (
-    <FlatList
-      data={data}
-      renderItem={({ item }) => {
-        return (
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginVertical: 10,
-              alignItems: 'center',
-            }}
-          >
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <View
-                style={{
-                  height: 10,
-                  width: 10,
-                  backgroundColor: 'grey',
-                  borderRadius: 5,
-                  marginRight: 20,
-                }}
-              />
-              <BBText size={16}>{`${item.date} - ${item.title}`}</BBText>
-            </View>
-            <BBText size={16}>{`${item.points} pts`}</BBText>
-          </View>
-        )
-      }}
-    />
+    <View>
+      {renderProgress()}
+      <View style={styles.line} />
+    </View>
   )
 }
 
