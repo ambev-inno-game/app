@@ -1,20 +1,19 @@
-import React, { useState, useRef } from 'react'
-import { View, Dimensions, Image, ScrollView } from 'react-native'
+import React, { useState, useRef, useEffect } from 'react'
+import {
+  View,
+  Dimensions,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native'
 import Carousel from 'react-native-snap-carousel'
-import { useDispatch } from 'react-redux'
 
-import { COLORS } from '~/res'
+import { is } from 'core-js/fn/object'
+
 import { NavigationService } from '~/services'
-import * as authActions from '~/store/modules/auth/actions'
 import { Button, BBText, CarouselSteps } from '~/ui/components'
 
 import styles from './styles'
-
-const images = [
-  'http://lorempixel.com/g/300/310/food',
-  'http://lorempixel.com/g/300/310/sports',
-  'http://lorempixel.com/g/300/310/',
-]
 
 const data = [
   {
@@ -68,15 +67,15 @@ const data = [
       'O que você gosta de fazer? Quais são seus hábitos de passatempo ou lazer? Selecione mais de um item.',
     options: [
       {
-        id: 1,
+        id: 10,
         image: 'http://lorempixel.com/g/100/120/food',
       },
       {
-        id: 2,
+        id: 11,
         image: 'http://lorempixel.com/g/100/120/sports',
       },
       {
-        id: 3,
+        id: 12,
         image: 'http://lorempixel.com/g/100/120/',
       },
       {
@@ -153,9 +152,13 @@ const data = [
 const { width, height } = Dimensions.get('window')
 
 export function QuestionsScreen() {
-  const dispatch = useDispatch()
   const carouselRef = useRef()
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+  const [selectedResponses, setSelectedResponses] = useState([{}])
+
+  useEffect(() => {
+    console.log(selectedResponses)
+  }, [selectedResponses])
 
   function handleSnapToItemEvent(i) {
     setCurrentSlideIndex(i)
@@ -178,9 +181,30 @@ export function QuestionsScreen() {
     )
   }
 
+  function onCardPress(id) {
+    const index = selectedResponses.findIndex((item) => item.id === id)
+    if (index >= 0) {
+      const stateCopy = [...selectedResponses]
+      stateCopy.splice(index, 1)
+      setSelectedResponses(stateCopy)
+    } else {
+      setSelectedResponses([...selectedResponses, { id }])
+    }
+  }
+
   function renderCards(value) {
     return value.options.map((item) => {
-      return <Image source={{ uri: item.image }} style={styles.image} />
+      const isSelected =
+        selectedResponses.find(({ id }) => item.id === id) !== undefined
+      return (
+        <TouchableOpacity
+          activeOpacity={1}
+          style={[styles.touchableImage, isSelected && { borderColor: 'red' }]}
+          onPress={() => onCardPress(item.id)}
+        >
+          <Image source={{ uri: item.image }} style={styles.image} />
+        </TouchableOpacity>
+      )
     })
   }
 
@@ -205,11 +229,11 @@ export function QuestionsScreen() {
       <Carousel
         data={data}
         inactiveSlideScale={1}
-        itemHeight={height - 200}
+        itemHeight={height}
         itemWidth={width}
         ref={carouselRef}
         renderItem={({ item }) => (
-          <View style={styles.cardContainer}>
+          <ScrollView contentContainerStyle={styles.cardContainer}>
             <View style={styles.textContainer}>
               <BBText size={23} style={styles.title} type='secondary-bold'>
                 {item.title}
@@ -219,7 +243,7 @@ export function QuestionsScreen() {
               </BBText>
             </View>
             <View style={styles.imageContainer}>{renderCards(item)}</View>
-          </View>
+          </ScrollView>
         )}
         sliderWidth={width}
         onSnapToItem={(i) => handleSnapToItemEvent(i)}

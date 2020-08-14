@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
   container: {
@@ -8,24 +10,31 @@ export default StyleSheet.create({
   },
   buttonContainer: {
     marginHorizontal: 40,
-    marginBottom: 30,
   },
   cardContainer: {
     marginBottom: 140,
-    alignItems: 'center',
+    flexGrow: 1,
+  },
+  touchableImage: {
+    marginVertical: 5,
+    borderRadius: 15,
+    borderWidth: 3,
+    borderColor: 'transparent',
+    overflow: 'hidden',
   },
   imageContainer: {
+    flex: 1,
     flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
   textContainer: {
     paddingLeft: 30,
     paddingRight: 30,
   },
   image: {
-    width: 100,
-    height: 120,
-    margin: 5,
-    borderRadius: 15,
+    width: width / 3 - 20,
+    height: (width / 3 - 20) * 1.2,
   },
   subtitle: {
     marginBottom: 10,
