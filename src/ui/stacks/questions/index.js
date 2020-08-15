@@ -1,10 +1,10 @@
 import React from 'react'
+import { View } from 'react-native'
 
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { AppHeader } from '~/ui/components'
 import { QuestionsScreen, NameScreen } from '~/ui/screens'
-import { View } from 'react-native'
 
 const Stack = createStackNavigator()
 

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { View, Image } from 'react-native'
 
+import { utils } from '~/res/utils'
 import { FormService, NavigationService } from '~/services'
 import { BBText, Button, Form, Input } from '~/ui/components'
 
@@ -31,11 +32,20 @@ export function NameScreen() {
   return (
     <View style={styles.container}>
       {renderTopView()}
-      <Form initialValues={{ name: '' }} innerRef={formRef}>
+      <Form
+        initialValues={{ name: '' }}
+        innerRef={formRef}
+        onSubmit={(params) => {
+          if (params.name) {
+            NavigationService.pushReplacement({ screen: 'QuestionsScreen' })
+          }
+        }}
+      >
         <Input
           innerRef={(ref) => formService.saveInputRef(ref, 'email')}
           name='name'
           placeholder='Como se chama?'
+          validate={utils.validators.isRequired}
         />
       </Form>
       <Image
@@ -44,7 +54,7 @@ export function NameScreen() {
       />
       <Button
         onPress={() => {
-          NavigationService.pushReplacement({ screen: 'QuestionsScreen' })
+          formRef.current.handleSubmit()
         }}
       >
         Avançar
