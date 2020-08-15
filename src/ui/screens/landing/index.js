@@ -11,9 +11,23 @@ import { Button, BBText, Link, CarouselSteps } from '~/ui/components'
 import styles from './styles'
 
 const images = [
-  'http://lorempixel.com/g/300/310/food',
-  'http://lorempixel.com/g/300/310/sports',
-  'http://lorempixel.com/g/300/310/',
+  {
+    image: 'http://lorempixel.com/g/300/310/food',
+    title: 'Aprenda a reciclar',
+    text: 'Material didático e dicas para você virar um expert na reciclagem',
+  },
+  {
+    image: 'http://lorempixel.com/g/300/310/sports',
+    title: 'Veja seu impacto',
+    text:
+      'Acompanhe a sua evolução, entenda o valor das pequenas atitudes e ganhe cupons e brindes!',
+  },
+  {
+    image: 'http://lorempixel.com/g/300/310/',
+    title: 'Faça a diferença',
+    text:
+      'Acompanhe a sua evolução, entenda o valor das pequenas atitudes e ganhe cupons e brindes!',
+  },
 ]
 
 const { width } = Dimensions.get('window')
@@ -63,20 +77,19 @@ export function LandingScreen() {
             showsVerticalScrollIndicator={false}
             style={styles.scrollView}
           >
-            <Image source={{ uri: item }} style={styles.image} />
+            <Image source={{ uri: item.image }} style={styles.image} />
             <View>
               <BBText
-                color={COLORS.MALACHITE}
+                color={COLORS.CORNFLOWER_BLUE}
                 numberOfLines={1}
                 size={20}
                 style={styles.carouselTitle}
                 type='secondary-bold'
               >
-                Aprenda a reciclar
+                {item.title}
               </BBText>
               <BBText size={16} style={styles.carouselSubtitle}>
-                Material didático e dicas para você virar um expert na
-                reciclagem
+                {item.text}
               </BBText>
             </View>
           </ScrollView>
