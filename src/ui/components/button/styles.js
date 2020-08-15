@@ -6,7 +6,7 @@ export default StyleSheet.create({
   button: {
     height: 50,
     borderWidth: 1,
-    borderColor: COLORS.LIGHT_BLUE,
+    borderColor: COLORS.CARIBBEAN_GREEN,
     backgroundColor: COLORS.GREEN,
     justifyContent: 'center',
     alignItems: 'center',
