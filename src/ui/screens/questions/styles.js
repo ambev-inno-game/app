@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
+import { COLORS } from '~/res'
+
 const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
@@ -52,5 +54,11 @@ export default StyleSheet.create({
   scrollView: {
     marginTop: 20,
     marginHorizontal: 40,
+  },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.WHITE,
   },
 })

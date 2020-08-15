@@ -8,7 +8,11 @@ class _QuestionsApiService {
   }
 
   async getInitialQuestions() {
-    const resp = await api.get(`/preferences`)
+    const resp = await api.get(`/preferences`, {
+      headers: {
+        apiKey: API_KEY,
+      },
+    })
 
     return resp
   }
