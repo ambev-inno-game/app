@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import {
   View,
   Dimensions,
@@ -8,9 +8,7 @@ import {
 } from 'react-native'
 import Carousel from 'react-native-snap-carousel'
 
-import { is } from 'core-js/fn/object'
-
-import { NavigationService } from '~/services'
+import { NavigationService, QuestionsApiService } from '~/services'
 import { Button, BBText, CarouselSteps } from '~/ui/components'
 
 import styles from './styles'
@@ -151,14 +149,25 @@ const data = [
 
 const { width, height } = Dimensions.get('window')
 
+const responsesModel = [{ responses: [] }, { responses: [] }, { responses: [] }]
+
 export function QuestionsScreen() {
   const carouselRef = useRef()
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-  const [selectedResponses, setSelectedResponses] = useState([{}])
+  const [selectedResponses, setSelectedResponses] = useState(responsesModel)
+  const [questions, setQuestions] = useState([])
 
   useEffect(() => {
-    console.log(selectedResponses)
-  }, [selectedResponses])
+    async function getQuestions() {
+      const questionsResp = await QuestionsApiService.getInitialQuestions()
+
+      console.tron.log(questionsResp)
+
+      setQuestions(questionsResp)
+    }
+
+    getQuestions()
+  }, [])
 
   function handleSnapToItemEvent(i) {
     setCurrentSlideIndex(i)
@@ -172,6 +181,10 @@ export function QuestionsScreen() {
     carouselRef.current.snapToNext()
   }
 
+  const currentResponses = useMemo(() => {
+    return selectedResponses[currentSlideIndex].responses
+  }, [currentSlideIndex, selectedResponses])
+
   function renderCarouselSteps() {
     return (
       <CarouselSteps
@@ -182,20 +195,32 @@ export function QuestionsScreen() {
   }
 
   function onCardPress(id) {
-    const index = selectedResponses.findIndex((item) => item.id === id)
+    const index = currentResponses.findIndex((itemId) => itemId === id)
+
     if (index >= 0) {
-      const stateCopy = [...selectedResponses]
-      stateCopy.splice(index, 1)
-      setSelectedResponses(stateCopy)
+      const respsCopy = [...currentResponses]
+      const selectedResponsesCopy = [...selectedResponses]
+      respsCopy.splice(index, 1)
+
+      selectedResponsesCopy[currentSlideIndex].responses = respsCopy
+
+      setSelectedResponses(selectedResponsesCopy)
     } else {
-      setSelectedResponses([...selectedResponses, { id }])
+      const selectedResponsesCopy = [...selectedResponses]
+
+      selectedResponsesCopy[currentSlideIndex].responses = [
+        ...currentResponses,
+        id,
+      ]
+
+      setSelectedResponses(selectedResponsesCopy)
     }
   }
 
   function renderCards(value) {
     return value.options.map((item) => {
       const isSelected =
-        selectedResponses.find(({ id }) => item.id === id) !== undefined
+        currentResponses.find((itemId) => itemId === item.id) !== undefined
       return (
         <TouchableOpacity
           activeOpacity={1}

@@ -9,7 +9,7 @@ export default StyleSheet.create({
     paddingTop: 30,
   },
   buttonContainer: {
-    marginHorizontal: 40,
+    marginHorizontal: 15,
   },
   cardContainer: {
     marginBottom: 140,

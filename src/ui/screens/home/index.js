@@ -11,9 +11,9 @@ export function HomeScreen() {
   useEffect(() => {
     async function getHomeData() {
       LoaderService.show()
-      const homeData = await HomeApiService.getHomePage()
+      // const homeData = await HomeApiService.getHomePage()
 
-      setData(homeData)
+      // setData(homeData)
       LoaderService.hide()
     }
 
