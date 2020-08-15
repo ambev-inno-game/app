@@ -1,25 +1,46 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, View, Dimensions } from 'react-native'
+import MapView from 'react-native-maps'
 
-import { StatusBar } from 'expo-status-bar'
+import * as Location from 'expo-location'
 
-import { BBText } from '~/ui/components'
+import { ToastService } from '~/services'
+import { ScreenLoader } from '~/ui/components'
+
+import styles from './styles'
 
 export function CollectionPointScreen() {
-  return (
-    <View style={styles.container}>
-      <BBText size={20} type='secondary-bold'>
-        Mapa com os pontos de coleta próximos a você
-      </BBText>
-    </View>
-  )
-}
+  const [location, setLocation] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    padding: 30,
-  },
-})
+  useEffect(() => {
+    async function getLocation() {
+      setIsLoading(true)
+      const { status } = await Location.requestPermissionsAsync()
+      if (status !== 'granted') {
+        ToastService.show('O acesso a localização não foi permitido')
+      }
+
+      const currentLocation = await Location.getCurrentPositionAsync({})
+      console.tron.log(currentLocation)
+      setLocation(currentLocation.coords)
+      setIsLoading(false)
+    }
+
+    getLocation()
+  }, [])
+
+  function renderContent() {
+    if (isLoading) {
+      return <ScreenLoader />
+    }
+
+    return (
+      <View style={styles.container}>
+        <MapView region={{}} style={styles.map} />
+      </View>
+    )
+  }
+
+  return renderContent()
+}
