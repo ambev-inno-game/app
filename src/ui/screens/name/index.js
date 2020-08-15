@@ -60,7 +60,7 @@ export function NameScreen() {
       <Image
         source={{
           uri:
-            'https://cdn.discordapp.com/attachments/576875163686010911/744277396278214776/perguntas_inicio_1.png',
+            'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/perguntas_inicio+%E2%80%93+1.png',
         }}
         style={styles.image}
       />

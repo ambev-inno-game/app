@@ -41,14 +41,6 @@ export function HomeScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <BBText
-        color={COLORS.CORNFLOWER_BLUE}
-        size={25}
-        style={styles.title}
-        type='secondary-bold'
-      >
-        Sempre em Casa
-      </BBText>
       <TouchableOpacity
         style={{ marginHorizontal: 7 }}
         onPress={() => onBanner('SempreEmCasaScreen')}
@@ -58,14 +50,6 @@ export function HomeScreen() {
           style={styles.image}
         />
       </TouchableOpacity>
-      <BBText
-        color={COLORS.CORNFLOWER_BLUE}
-        size={25}
-        style={styles.title}
-        type='secondary-bold'
-      >
-        Funções
-      </BBText>
       <View style={styles.scrollView}>
         {images.map((item) => {
           return (
@@ -80,14 +64,6 @@ export function HomeScreen() {
           )
         })}
       </View>
-      <BBText
-        color={COLORS.CORNFLOWER_BLUE}
-        size={25}
-        style={styles.title}
-        type='secondary-bold'
-      >
-        Ambev Recicla
-      </BBText>
       <TouchableOpacity
         style={{ marginHorizontal: 7 }}
         onPress={() => onBanner('ArticleScreen')}
