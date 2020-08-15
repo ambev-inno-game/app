@@ -2,11 +2,15 @@
   "name": "ambevinno",
   "displayName": "ambevinno",
   "expo": {
-    "name": "ambevinno",
-    "slug": "ambevinno",
+    "name": "Sempre Recicla",
+    "slug": "semprerecicla",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "backgroundColor": "#00CD60"
+    }
   }
 }
