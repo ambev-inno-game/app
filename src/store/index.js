@@ -27,7 +27,7 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 const store = createStore(persistedReducer, middlewares)
 const persistor = persistStore(store)
 
-persistStore(store).purge()
+// persistStore(store).purge()
 
 sagaMiddleware.run(sagas)
 
