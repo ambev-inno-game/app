@@ -66,16 +66,17 @@ export function LandingScreen() {
             <Image source={{ uri: item }} style={styles.image} />
             <View>
               <BBText
+                color={COLORS.GREEN}
                 numberOfLines={1}
                 size={20}
                 style={styles.carouselTitle}
                 type='secondary-bold'
               >
-                Mussum Ipsum, cacilds vidis
+                Aprenda a reciclar
               </BBText>
               <BBText size={16} style={styles.carouselSubtitle}>
-                Mussum Ipsum, cacilds vidis litro abertis. Mais vale um bebadis
-                conhecidiss, que um alcoolatra anonimis.
+                Material didático e dicas para você virar um expert na
+                reciclagem
               </BBText>
             </View>
           </ScrollView>
