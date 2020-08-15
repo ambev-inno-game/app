@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { View } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 
@@ -7,13 +7,19 @@ import * as Location from 'expo-location'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import { ToastService } from '~/services'
-import { ScreenLoader } from '~/ui/components'
+import { ScreenLoader, AppHeader } from '~/ui/components'
 
 import styles from './styles'
 
-export function CollectionPointScreen() {
+export function CollectionPointScreen({ navigation }) {
   const [location, setLocation] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader showBackButton title='Pontos de Coleta' />,
+    })
+  }, [navigation])
 
   useEffect(() => {
     async function getLocation() {
@@ -42,9 +48,10 @@ export function CollectionPointScreen() {
           longitude: location.longitude + Math.random() * i,
         }}
         description='Troque embalagens por pontos!'
+        key={String(i)}
         title='Ponto de coleta'
       >
-        <MaterialCommunityIcons color='green' name='recycle' size={33} />
+        <MaterialCommunityIcons color='green' name='recycle' size={35} />
       </Marker>
     ))
   }
