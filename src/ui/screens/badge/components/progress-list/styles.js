@@ -16,7 +16,7 @@ export default StyleSheet.create({
   itemDot: {
     height: 12,
     width: 12,
-    backgroundColor: COLORS.DOVE_GRAY,
+    backgroundColor: COLORS.CORNFLOWER_BLUE,
     borderRadius: 10,
     marginRight: 20,
   },
@@ -24,7 +24,7 @@ export default StyleSheet.create({
     width: 2,
     height: '88%',
     position: 'absolute',
-    backgroundColor: COLORS.DOVE_GRAY,
+    backgroundColor: COLORS.CORNFLOWER_BLUE,
     left: 5,
     top: 25,
   },

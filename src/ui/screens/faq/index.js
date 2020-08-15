@@ -1,25 +1,20 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useLayoutEffect } from 'react'
+import { WebView } from 'react-native-webview'
 
-import { StatusBar } from 'expo-status-bar'
+import { AppHeader, ScreenLoader } from '~/ui/components'
 
-import { BBText } from '~/ui/components'
+export function FaqScreen({ navigation }) {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader title='FAQ' />,
+    })
+  }, [navigation])
 
-export function FaqScreen() {
   return (
-    <View style={styles.container}>
-      <BBText size={20} type='secondary-bold'>
-        Perguntas frequentes e acesso a nossa central de atendimento.
-      </BBText>
-    </View>
+    <WebView
+      startInLoadingState
+      renderLoading={() => <ScreenLoader />}
+      source={{ uri: 'https://www.ambev.com.br/contato/' }}
+    />
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    padding: 30,
-  },
-})

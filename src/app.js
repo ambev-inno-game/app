@@ -16,7 +16,6 @@ import {
   HomeStack,
   ProfileStack,
   AuthStack,
-  MyBoxStack,
   BadgeStack,
   ArticleStack,
   DiscardStack,
@@ -57,14 +56,6 @@ export function DrawerNavigation() {
         options={{
           drawerLabel: 'FAQ',
           drawerIcon: () => renderIcon('customerservice'),
-        }}
-      />
-      <Drawer.Screen
-        component={MyBoxStack}
-        name='MyBoxStack'
-        options={{
-          drawerLabel: 'Meu Box',
-          drawerIcon: () => renderIcon('inbox'),
         }}
       />
       <Drawer.Screen

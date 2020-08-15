@@ -58,7 +58,10 @@ export function NameScreen() {
         />
       </Form>
       <Image
-        source={{ uri: 'http://lorempixel.com/g/300/310/food' }}
+        source={{
+          uri:
+            'https://cdn.discordapp.com/attachments/576875163686010911/744277396278214776/perguntas_inicio_1.png',
+        }}
         style={styles.image}
       />
       <Button

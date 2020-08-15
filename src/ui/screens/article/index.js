@@ -6,7 +6,7 @@ import { AppHeader, ScreenLoader } from '~/ui/components'
 export function ArticleScreen({ navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
-      header: () => <AppHeader showBackButton title='Ambev Recicla' />,
+      header: () => <AppHeader title='Ambev Recicla' />,
     })
   }, [navigation])
 

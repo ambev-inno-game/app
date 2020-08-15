@@ -3,6 +3,7 @@ import { View, ScrollView, TouchableOpacity } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons'
 
+import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
 import { BBText } from '~/ui/components'
 
@@ -71,7 +72,7 @@ export function BadgeScreen() {
     return (
       <View>
         <BBText size={16}>Você está com</BBText>
-        <BBText size={22} type='secondary-bold'>
+        <BBText color={COLORS.CORNFLOWER_BLUE} size={22} type='secondary-bold'>
           20.547 pontos
         </BBText>
       </View>
@@ -90,12 +91,20 @@ export function BadgeScreen() {
         onPress={goToGiftsScreen}
       >
         <View>
-          <BBText size={16} type='secondary-bold'>
+          <BBText
+            color={COLORS.CORNFLOWER_BLUE}
+            size={16}
+            type='secondary-bold'
+          >
             Seus pontos valem muito!
           </BBText>
           <BBText size={16}>Resgate agora e aproveite</BBText>
         </View>
-        <MaterialIcons name='keyboard-arrow-right' size={40} />
+        <MaterialIcons
+          color={COLORS.CORNFLOWER_BLUE}
+          name='keyboard-arrow-right'
+          size={40}
+        />
       </TouchableOpacity>
     )
   }
@@ -109,7 +118,7 @@ export function BadgeScreen() {
       {renderTitle()}
       {renderMainCard()}
       <View>
-        <BBText size={22} type='secondary-bold'>
+        <BBText color={COLORS.CORNFLOWER_BLUE} size={22} type='secondary-bold'>
           Seu progesso
         </BBText>
         {renderUserProgress()}
