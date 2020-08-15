@@ -1,21 +1,17 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
+import { COLORS } from '~/res'
+
 const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    width: '100%',
-    paddingLeft: 20,
-    paddingRight: 20,
+    flexGrow: 1,
+    backgroundColor: COLORS.WHITE,
+    paddingVertical: 35,
   },
   scrollView: {
-    // marginTop: 20,
-    // marginHorizontal: 40,
-    // backgroundColor: 'red',
-    width: '100%',
+    paddingVertical: 20,
   },
   image: {
     width: width * 0.7,

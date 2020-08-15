@@ -51,11 +51,12 @@ export function HomeScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <ScrollView
         horizontal
+        contentContainerStyle={styles.scrollView}
+        showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        style={styles.scrollView}
       >
         {images.map((item) => {
           return (
@@ -68,6 +69,38 @@ export function HomeScreen() {
           )
         })}
       </ScrollView>
-    </View>
+      <ScrollView
+        horizontal
+        contentContainerStyle={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
+        {images.map((item) => {
+          return (
+            <TouchableOpacity
+              style={{ marginHorizontal: 7 }}
+              onPress={() => onSempreEmCasaBanner()}
+            >
+              <Image source={{ uri: item }} style={styles.image} />
+            </TouchableOpacity>
+          )
+        })}
+      </ScrollView>
+      <ScrollView
+        horizontal
+        contentContainerStyle={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
+        {images.map((item) => {
+          return (
+            <TouchableOpacity
+              style={{ marginHorizontal: 7 }}
+              onPress={() => onSempreEmCasaBanner()}
+            >
+              <Image source={{ uri: item }} style={styles.image} />
+            </TouchableOpacity>
+          )
+        })}
+      </ScrollView>
+    </ScrollView>
   )
 }
