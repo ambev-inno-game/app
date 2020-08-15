@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 import { StatusBar } from 'expo-status-bar'
 
-import { AntDesign } from '@expo/vector-icons'
+import { AntDesign, SimpleLineIcons } from '@expo/vector-icons'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -22,6 +22,7 @@ import {
   DiscardStack,
   CollectionPointStack,
   QuestionsStack,
+  QrCodeStack,
 } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
@@ -95,7 +96,15 @@ export function DrawerNavigation() {
         name='CollectionPointStack'
         options={{
           drawerLabel: 'Pontos de Coleta',
-          drawerIcon: () => renderIcon('pushpino'),
+          drawerIcon: () => <SimpleLineIcons name='location-pin' size={23} />,
+        }}
+      />
+      <Drawer.Screen
+        component={QrCodeStack}
+        name='QrCodeStack'
+        options={{
+          drawerLabel: 'Scanner QR Code',
+          drawerIcon: () => renderIcon('qrcode'),
         }}
       />
     </Drawer.Navigator>

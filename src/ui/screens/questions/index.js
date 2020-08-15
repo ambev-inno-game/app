@@ -8,18 +8,27 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import Carousel from 'react-native-snap-carousel'
+import { useDispatch } from 'react-redux'
 
 import { COLORS } from '~/res'
-import { NavigationService, QuestionsApiService } from '~/services'
+import {
+  NavigationService,
+  QuestionsApiService,
+  ToastService,
+} from '~/services'
+import * as authActions from '~/store/modules/auth/actions'
 import { Button, BBText, CarouselSteps } from '~/ui/components'
 
 import styles from './styles'
 
 const { width, height } = Dimensions.get('window')
 
-const responsesModel = [{ responses: [] }, { responses: [] }, { responses: [] }]
+const responsesModel = [{ responses: [] }, { responses: [] }]
 
-export function QuestionsScreen() {
+export function QuestionsScreen({ route }) {
+  const { params } = route
+
+  const dispatch = useDispatch()
   const carouselRef = useRef()
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
   const [selectedResponses, setSelectedResponses] = useState(responsesModel)
@@ -30,8 +39,6 @@ export function QuestionsScreen() {
     async function getQuestions() {
       setIsLoading(true)
       const questionsResp = await QuestionsApiService.getInitialQuestions()
-
-      console.tron.log(questionsResp)
       setQuestions(questionsResp)
       setIsLoading(false)
     }
@@ -44,7 +51,20 @@ export function QuestionsScreen() {
   }
 
   function concludeForm() {
-    NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
+    const hasAnsweredAllQuestions =
+      selectedResponses.filter(({ responses }) => responses.length > 0)
+        .length === questions.length
+
+    console.tron.log(hasAnsweredAllQuestions)
+
+    if (hasAnsweredAllQuestions) {
+      dispatch(authActions.leadLogin({ name: params.name }))
+      NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
+    } else {
+      ToastService.show({
+        message: 'Ops. Você precisa responder todas as perguntas!',
+      })
+    }
   }
 
   function next() {
