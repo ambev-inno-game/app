@@ -22,6 +22,7 @@ import {
   DiscardStack,
   CollectionPointStack,
   QuestionsStack,
+  QrCodeStack,
 } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
@@ -96,6 +97,14 @@ export function DrawerNavigation() {
         options={{
           drawerLabel: 'Pontos de Coleta',
           drawerIcon: () => <SimpleLineIcons name='location-pin' size={23} />,
+        }}
+      />
+      <Drawer.Screen
+        component={QrCodeStack}
+        name='QrCodeStack'
+        options={{
+          drawerLabel: 'Scanner QR Code',
+          drawerIcon: () => renderIcon('qrcode'),
         }}
       />
     </Drawer.Navigator>
