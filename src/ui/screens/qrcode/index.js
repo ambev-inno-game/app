@@ -50,7 +50,7 @@ export function QrCodeScreen({ navigation }) {
     const isValidQrCode = isCheckInQrCode || isBottleQrCode
 
     if (!isValidQrCode) {
-      Alert.alert('Erro', 'Opss. Parece que o QR Code não é válido :(', [
+      Alert.alert('Opss...', 'Parece que o QR Code não é válido :(', [
         {
           text: 'OK',
           onPress: () => setHasScanned(false),
@@ -65,7 +65,7 @@ export function QrCodeScreen({ navigation }) {
         if (!hasCheckedIn) {
           setHasCheckedIn(true)
           Alert.alert(
-            'Checkin feito com sucesso',
+            'Checkin feito com sucesso!',
             'Agora você ja pode ler o QR code dos recipientes.',
             [
               {
@@ -102,8 +102,8 @@ export function QrCodeScreen({ navigation }) {
       if (isBottleQrCode) {
         if (!hasCheckedIn) {
           Alert.alert(
-            'Erro',
-            'Você precisa fazer o checkin no ponto de coleta antes.',
+            'Opss...',
+            'Primeiro você precisa fazer o checkin no ponto de coleta.',
             [
               {
                 text: 'Entendi',
@@ -117,7 +117,7 @@ export function QrCodeScreen({ navigation }) {
         setReadBottles(readBottles + 1)
         Alert.alert(
           'Recipiente escaneado.',
-          'Continue escaneando os recipientes ou finalize o processo.',
+          'Continue escaneando ou finalize o processo.',
           [
             {
               text: 'Ok',
