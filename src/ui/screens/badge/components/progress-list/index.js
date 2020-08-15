@@ -3,6 +3,7 @@ import { FlatList, View } from 'react-native'
 
 import PropTypes from 'prop-types'
 
+import { COLORS } from '~/res'
 import { BBText } from '~/ui/components'
 
 import styles from './styles'
