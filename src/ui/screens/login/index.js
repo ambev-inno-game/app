@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { AntDesign } from '@expo/vector-icons'
 
-import { utils } from '~/res'
+import { utils, COLORS } from '~/res'
 import { FormService, NavigationService } from '~/services'
 import * as authActions from '~/store/modules/auth/actions'
 import { Button, Input, Form, BBText, Link } from '~/ui/components'
@@ -22,7 +22,12 @@ export function LoginScreen() {
   function renderTopView() {
     return (
       <View style={styles.topContainer}>
-        <BBText size={23} style={styles.title} type='secondary-bold'>
+        <BBText
+          color={COLORS.CORNFLOWER_BLUE}
+          size={23}
+          style={styles.title}
+          type='secondary-bold'
+        >
           Login
         </BBText>
         <BBText size={17} style={styles.subtitle}>
@@ -60,11 +65,21 @@ export function LoginScreen() {
           Entrar
         </Button>
         <View style={styles.subcontent}>
-          <BBText style={styles.subtitle}>ou entre com</BBText>
+          <BBText size={17} style={styles.subtitle}>
+            ou entre com
+          </BBText>
           <View style={styles.icons}>
-            <AntDesign color='black' name='twitter' size={30} />
-            <AntDesign color='black' name='facebook-square' size={30} />
-            <AntDesign color='black' name='google' size={30} />
+            <AntDesign
+              color={COLORS.CORNFLOWER_BLUE}
+              name='twitter'
+              size={30}
+            />
+            <AntDesign
+              color={COLORS.CORNFLOWER_BLUE}
+              name='facebook-square'
+              size={30}
+            />
+            <AntDesign color={COLORS.CORNFLOWER_BLUE} name='google' size={30} />
           </View>
         </View>
       </View>

@@ -12,7 +12,7 @@ export default StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 310,
+    height: 345,
     borderRadius: 15,
   },
   title: {

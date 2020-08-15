@@ -12,21 +12,24 @@ import styles from './styles'
 
 const images = [
   {
-    image: 'http://lorempixel.com/g/300/310/food',
+    image:
+      'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/onboarding+1.png',
     title: 'Aprenda a reciclar',
     text: 'Material didático e dicas para você virar um expert na reciclagem',
   },
   {
-    image: 'http://lorempixel.com/g/300/310/sports',
-    title: 'Veja seu impacto',
+    image:
+      'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/onboarding+2.png',
+    title: 'Ganhe fazendo o bem',
     text:
-      'Acompanhe a sua evolução, entenda o valor das pequenas atitudes e ganhe cupons e brindes!',
+      'Acompanhe a sua evolução e ganhe cupons e brindes de marcas parceiras por grandes gestos.',
   },
   {
-    image: 'http://lorempixel.com/g/300/310/',
+    image:
+      'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/onboarding+3.png',
     title: 'Faça a diferença',
     text:
-      'Acompanhe a sua evolução, entenda o valor das pequenas atitudes e ganhe cupons e brindes!',
+      'Entenda o valor das pequenas atitudes e faça parte de uma mudança no mundo. O planeta agradece. <3',
   },
 ]
 
@@ -99,7 +102,6 @@ export function LandingScreen() {
       />
       <View style={styles.buttonContainer}>
         <Button onPress={next}>Avançar</Button>
-        <Link onPress={skip}>Pular tutorial</Link>
       </View>
     </View>
   )

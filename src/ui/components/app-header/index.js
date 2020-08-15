@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import { FontAwesome, AntDesign } from '@expo/vector-icons'
 
+import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
 import { BBText } from '~/ui/components'
 
@@ -37,7 +38,7 @@ export function AppHeader({ showBackButton, title }) {
 
   function renderTitle() {
     return (
-      <BBText size={22} type='secondary-bold'>
+      <BBText color={COLORS.CORNFLOWER_BLUE} size={22} type='secondary-bold'>
         {title}
       </BBText>
     )
