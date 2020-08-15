@@ -15,7 +15,6 @@ export function CarouselSteps(props) {
 
     for (let i = 0; i < numberOfSteps; i++) {
       const backgroundColor = selectedStep === i ? activeColor : unactiveColor
-
       dots.push(
         <View key={`dot_${i}`} style={[styles.dot, { backgroundColor }]} />
       )
@@ -35,6 +34,6 @@ CarouselSteps.propTypes = {
 }
 
 CarouselSteps.defaultProps = {
-  activeColor: COLORS.DOVE_GRAY,
+  activeColor: COLORS.CARIBBEAN_GREEN,
   unactiveColor: COLORS.ALTO,
 }
