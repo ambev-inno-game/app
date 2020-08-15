@@ -1,39 +1,26 @@
-import React, { useRef, useEffect, useState } from 'react'
-import {
-  View,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native'
-import Carousel from 'react-native-snap-carousel'
+import React, { useEffect } from 'react'
+import { ScrollView, Image, TouchableOpacity } from 'react-native'
 
-import { HomeApiService, LoaderService, NavigationService } from '~/services'
-import { BBText } from '~/ui/components'
+import { LoaderService, NavigationService } from '~/services'
 
 import styles from './styles'
 
-/**
- * Sempre em casa
- *
- * QR code
- * Localizar
- * Trocar Pontos
- *
- * Ambev Recicla
- */
-
-const { width } = Dimensions.get('window')
 const images = [
-  'http://lorempixel.com/g/300/310/food',
-  'http://lorempixel.com/g/300/310/sports',
-  'http://lorempixel.com/g/300/310/',
+  {
+    image: 'http://lorempixel.com/g/300/310/food',
+    screen: 'QrCodeScreen',
+  },
+  {
+    image: 'http://lorempixel.com/g/300/310/sports',
+    screen: 'CollectionPointScreen',
+  },
+  {
+    image: 'http://lorempixel.com/g/300/310/',
+    screen: 'GiftsScreen',
+  },
 ]
 
 export function HomeScreen() {
-  const [data, setData] = useState([])
-  const carouselRef = useRef()
-
   useEffect(() => {
     async function getHomeData() {
       LoaderService.show()
@@ -46,29 +33,21 @@ export function HomeScreen() {
     getHomeData()
   }, [])
 
-  function onSempreEmCasaBanner() {
-    NavigationService.navigate({ screen: 'SempreEmCasaScreen' })
+  function onBanner(value) {
+    NavigationService.navigate({ screen: value })
   }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <ScrollView
-        horizontal
-        contentContainerStyle={styles.scrollView}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
+      <TouchableOpacity
+        style={{ marginHorizontal: 7 }}
+        onPress={() => onBanner('SempreEmCasaScreen')}
       >
-        {images.map((item) => {
-          return (
-            <TouchableOpacity
-              style={{ marginHorizontal: 7 }}
-              onPress={() => onSempreEmCasaBanner()}
-            >
-              <Image source={{ uri: item }} style={styles.image} />
-            </TouchableOpacity>
-          )
-        })}
-      </ScrollView>
+        <Image
+          source={{ uri: 'http://lorempixel.com/g/300/310/food' }}
+          style={styles.image}
+        />
+      </TouchableOpacity>
       <ScrollView
         horizontal
         contentContainerStyle={styles.scrollView}
@@ -78,29 +57,22 @@ export function HomeScreen() {
           return (
             <TouchableOpacity
               style={{ marginHorizontal: 7 }}
-              onPress={() => onSempreEmCasaBanner()}
+              onPress={() => onBanner(item.screen)}
             >
-              <Image source={{ uri: item }} style={styles.image} />
+              <Image source={{ uri: item.image }} style={styles.scrollImage} />
             </TouchableOpacity>
           )
         })}
       </ScrollView>
-      <ScrollView
-        horizontal
-        contentContainerStyle={styles.scrollView}
-        showsVerticalScrollIndicator={false}
+      <TouchableOpacity
+        style={{ marginHorizontal: 7 }}
+        onPress={() => onBanner('ArticleScreen')}
       >
-        {images.map((item) => {
-          return (
-            <TouchableOpacity
-              style={{ marginHorizontal: 7 }}
-              onPress={() => onSempreEmCasaBanner()}
-            >
-              <Image source={{ uri: item }} style={styles.image} />
-            </TouchableOpacity>
-          )
-        })}
-      </ScrollView>
+        <Image
+          source={{ uri: 'http://lorempixel.com/g/300/310/sports' }}
+          style={styles.image}
+        />
+      </TouchableOpacity>
     </ScrollView>
   )
 }

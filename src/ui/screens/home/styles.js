@@ -13,8 +13,13 @@ export default StyleSheet.create({
   scrollView: {
     paddingVertical: 20,
   },
-  image: {
+  scrollImage: {
     width: width * 0.7,
+    height: (width / 2 - 30) * 1.2,
+    borderRadius: 5,
+  },
+  image: {
+    width: width * 0.95,
     height: (width / 2 - 30) * 1.2,
     borderRadius: 5,
   },

@@ -10,11 +10,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { NavigationService } from '~/services'
-import {
-  LandingScreen,
-  DevelopmentScreen,
-  SempreEmCasaScreen,
-} from '~/ui/screens'
+import { LandingScreen, DevelopmentScreen } from '~/ui/screens'
 import {
   FaqStack,
   HomeStack,
@@ -26,6 +22,7 @@ import {
   DiscardStack,
   CollectionPointStack,
   QuestionsStack,
+  QrCodeStack,
 } from '~/ui/stacks'
 
 const Stack = createStackNavigator()
@@ -100,6 +97,14 @@ export function DrawerNavigation() {
         options={{
           drawerLabel: 'Pontos de Coleta',
           drawerIcon: () => renderIcon('pushpino'),
+        }}
+      />
+      <Drawer.Screen
+        component={QrCodeStack}
+        name='QrCodeStack'
+        options={{
+          drawerLabel: 'Scanner QR Code',
+          drawerIcon: () => renderIcon('qrcode'),
         }}
       />
     </Drawer.Navigator>
