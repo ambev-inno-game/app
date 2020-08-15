@@ -7,7 +7,7 @@ import styles from './styles'
 
 const images = [
   {
-    image: 'http://lorempixel.com/g/300/310/',
+    image: 'http://lorempixel.com/g/300/310/food',
     screen: 'QrCodeScreen',
   },
   {
