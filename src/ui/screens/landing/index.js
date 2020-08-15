@@ -6,9 +6,8 @@ import { useDispatch } from 'react-redux'
 import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
 import * as authActions from '~/store/modules/auth/actions'
-import { Button, BBText, Link } from '~/ui/components'
+import { Button, BBText, Link, CarouselSteps } from '~/ui/components'
 
-import { CarouselSteps } from './components'
 import styles from './styles'
 
 const images = [
