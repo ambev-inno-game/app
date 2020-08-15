@@ -23,6 +23,9 @@ export default StyleSheet.create({
     borderWidth: 3,
     borderColor: 'transparent',
     overflow: 'hidden',
+    width: width / 3 - 20,
+    height: (width / 3 - 20) * 1.2,
+    backgroundColor: COLORS.ALTO,
   },
   imageContainer: {
     flex: 1,

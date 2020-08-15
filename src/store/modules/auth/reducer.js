@@ -54,6 +54,13 @@ export default function auth(state = INITIAL_STATE, action) {
         isLoggingIn: false,
       }
     }
+    case ACTIONS_TYPES.LEAD_LOGIN: {
+      return {
+        ...state,
+        isLoggedIn: true,
+        authLevel: AUTH_LEVEL.LEAD,
+      }
+    }
     default:
       return state
   }
