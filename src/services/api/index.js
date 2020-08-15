@@ -1,2 +1,2 @@
 export { AuthApiService } from './auth'
-export { HomeApiService } from './home'
+export { QuestionsApiService } from './questions'
