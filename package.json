@@ -34,6 +34,7 @@
     "react-native-snap-carousel": "^4.0.0-beta.5",
     "react-native-unimodules": "~0.10.1",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "^10.4.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
