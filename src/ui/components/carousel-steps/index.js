@@ -35,5 +35,5 @@ CarouselSteps.propTypes = {
 
 CarouselSteps.defaultProps = {
   activeColor: COLORS.CARIBBEAN_GREEN,
-  unactiveColor: COLORS.GREY,
+  unactiveColor: COLORS.ALTO,
 }

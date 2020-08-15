@@ -66,7 +66,7 @@ export function LandingScreen() {
             <Image source={{ uri: item }} style={styles.image} />
             <View>
               <BBText
-                color={COLORS.GREEN}
+                color={COLORS.MALACHITE}
                 numberOfLines={1}
                 size={20}
                 style={styles.carouselTitle}
