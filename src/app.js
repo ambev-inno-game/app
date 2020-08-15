@@ -10,7 +10,11 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { NavigationService } from '~/services'
-import { LandingScreen, DevelopmentScreen } from '~/ui/screens'
+import {
+  LandingScreen,
+  DevelopmentScreen,
+  SempreEmCasaScreen,
+} from '~/ui/screens'
 import {
   FaqStack,
   HomeStack,
