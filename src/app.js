@@ -36,7 +36,7 @@ export function DrawerNavigation() {
   return (
     <Drawer.Navigator initialRouteName='HomeStack'>
       <Drawer.Screen
-        component={LandingScreen}
+        component={ProfileStack}
         name='ProfileStack'
         options={{
           drawerLabel: 'Perfil',
