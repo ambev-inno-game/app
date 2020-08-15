@@ -8,8 +8,9 @@ import { BBText } from '~/ui/components'
 export function MyBoxScreen() {
   return (
     <View style={styles.container}>
-      <BBText>My Box</BBText>
-      <StatusBar style='auto' />
+      <BBText size={20} type='secondary-bold'>
+        Sua box que você receberá todos os meses.
+      </BBText>
     </View>
   )
 }
@@ -19,6 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 })
