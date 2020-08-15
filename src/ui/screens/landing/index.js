@@ -11,9 +11,26 @@ import { Button, BBText, Link, CarouselSteps } from '~/ui/components'
 import styles from './styles'
 
 const images = [
-  'http://lorempixel.com/g/300/310/food',
-  'http://lorempixel.com/g/300/310/sports',
-  'http://lorempixel.com/g/300/310/',
+  {
+    image:
+      'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/onboarding+1.png',
+    title: 'Aprenda a reciclar',
+    text: 'Material didático e dicas para você virar um expert na reciclagem',
+  },
+  {
+    image:
+      'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/onboarding+2.png',
+    title: 'Ganhe fazendo o bem',
+    text:
+      'Acompanhe a sua evolução e ganhe cupons e brindes de marcas parceiras por grandes gestos.',
+  },
+  {
+    image:
+      'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/onboarding+3.png',
+    title: 'Faça a diferença',
+    text:
+      'Entenda o valor das pequenas atitudes e faça parte de uma mudança no mundo. O planeta agradece. <3',
+  },
 ]
 
 const { width } = Dimensions.get('window')
@@ -63,20 +80,19 @@ export function LandingScreen() {
             showsVerticalScrollIndicator={false}
             style={styles.scrollView}
           >
-            <Image source={{ uri: item }} style={styles.image} />
+            <Image source={{ uri: item.image }} style={styles.image} />
             <View>
               <BBText
-                color={COLORS.MALACHITE}
+                color={COLORS.CORNFLOWER_BLUE}
                 numberOfLines={1}
                 size={20}
                 style={styles.carouselTitle}
                 type='secondary-bold'
               >
-                Aprenda a reciclar
+                {item.title}
               </BBText>
               <BBText size={16} style={styles.carouselSubtitle}>
-                Material didático e dicas para você virar um expert na
-                reciclagem
+                {item.text}
               </BBText>
             </View>
           </ScrollView>
@@ -86,7 +102,6 @@ export function LandingScreen() {
       />
       <View style={styles.buttonContainer}>
         <Button onPress={next}>Avançar</Button>
-        <Link onPress={skip}>Pular tutorial</Link>
       </View>
     </View>
   )

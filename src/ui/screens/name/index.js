@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { View, Image } from 'react-native'
 
+import { COLORS } from '~/res'
 import { utils } from '~/res/utils'
 import { FormService, NavigationService } from '~/services'
 import { BBText, Button, Form, Input } from '~/ui/components'
@@ -15,7 +16,12 @@ export function NameScreen() {
   function renderTopView() {
     return (
       <View>
-        <BBText size={23} style={styles.title} type='secondary-bold'>
+        <BBText
+          color={COLORS.CORNFLOWER_BLUE}
+          size={23}
+          style={styles.title}
+          type='secondary-bold'
+        >
           Pera aí!
         </BBText>
         <BBText size={17} style={styles.subtitle}>

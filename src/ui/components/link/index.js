@@ -12,12 +12,8 @@ export function Link(props) {
   const { onPress, children } = props
 
   return (
-    <TouchableOpacity
-      activeOpacity={0.6}
-      style={styles.link}
-      onPress={onPress}
-    >
-      <BBText size={17} style={styles.label}>
+    <TouchableOpacity activeOpacity={0.6} style={styles.link} onPress={onPress}>
+      <BBText color={COLORS.CORNFLOWER_BLUE} size={17} style={styles.label}>
         {children}
       </BBText>
     </TouchableOpacity>

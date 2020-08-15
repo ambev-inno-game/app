@@ -114,7 +114,10 @@ export function QuestionsScreen({ route }) {
       return (
         <TouchableOpacity
           activeOpacity={1}
-          style={[styles.touchableImage, isSelected && { borderColor: 'red' }]}
+          style={[
+            styles.touchableImage,
+            isSelected && { borderColor: COLORS.CORNFLOWER_BLUE },
+          ]}
           onPress={() => onCardPress(item.id)}
         >
           <Image source={{ uri: item.image }} style={styles.image} />
@@ -159,7 +162,12 @@ export function QuestionsScreen({ route }) {
           renderItem={({ item }) => (
             <ScrollView contentContainerStyle={styles.cardContainer}>
               <View style={styles.textContainer}>
-                <BBText size={23} style={styles.title} type='secondary-bold'>
+                <BBText
+                  color={COLORS.CORNFLOWER_BLUE}
+                  size={23}
+                  style={styles.title}
+                  type='secondary-bold'
+                >
                   {item.title}
                 </BBText>
                 <BBText size={17} style={styles.subtitle}>

@@ -6,8 +6,8 @@ export default StyleSheet.create({
   button: {
     height: 50,
     borderWidth: 1,
-    borderColor: COLORS.CARIBBEAN_GREEN,
-    backgroundColor: COLORS.MALACHITE,
+    borderColor: COLORS.CORNFLOWER_BLUE,
+    backgroundColor: COLORS.CORNFLOWER_BLUE,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
