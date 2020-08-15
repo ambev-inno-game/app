@@ -11,7 +11,7 @@ export default StyleSheet.create({
     paddingVertical: 35,
   },
   scrollView: {
-    paddingVertical: 20,
+    marginBottom: 20,
   },
   scrollImage: {
     width: width * 0.7,
@@ -22,5 +22,10 @@ export default StyleSheet.create({
     width: width * 0.95,
     height: (width / 2 - 30) * 1.2,
     borderRadius: 5,
+    marginBottom: 20,
+  },
+  title: {
+    textAlign: 'left',
+    paddingLeft: 7,
   },
 })
