@@ -17,7 +17,7 @@ export function CollectionPointScreen({ navigation }) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      header: () => <AppHeader showBackButton title='Pontos de Coleta' />,
+      header: () => <AppHeader title='Pontos de Coleta' />,
     })
   }, [navigation])
 
