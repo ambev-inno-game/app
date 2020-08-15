@@ -1,30 +1,161 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
+import {
+  View,
+  Dimensions,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native'
+import Carousel from 'react-native-snap-carousel'
 
-import { NavigationService } from '~/services'
-import { Button, BBText } from '~/ui/components'
+import { COLORS } from '~/res'
+import { NavigationService, QuestionsApiService } from '~/services'
+import { Button, BBText, CarouselSteps } from '~/ui/components'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-})
+import styles from './styles'
+
+const { width, height } = Dimensions.get('window')
+
+const responsesModel = [{ responses: [] }, { responses: [] }, { responses: [] }]
 
 export function QuestionsScreen() {
-  return (
-    <View style={styles.container}>
-      <BBText>QUESTIONS SCREEN</BBText>
-      <Button
-        onPress={() => {
-          NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
-        }}
-      >
-        IR PARA O APP
-      </Button>
-    </View>
-  )
+  const carouselRef = useRef()
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+  const [selectedResponses, setSelectedResponses] = useState(responsesModel)
+  const [questions, setQuestions] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    async function getQuestions() {
+      setIsLoading(true)
+      const questionsResp = await QuestionsApiService.getInitialQuestions()
+
+      console.tron.log(questionsResp)
+      setQuestions(questionsResp)
+      setIsLoading(false)
+    }
+
+    getQuestions()
+  }, [])
+
+  function handleSnapToItemEvent(i) {
+    setCurrentSlideIndex(i)
+  }
+
+  function concludeForm() {
+    NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
+  }
+
+  function next() {
+    carouselRef.current.snapToNext()
+  }
+
+  const currentResponses = useMemo(() => {
+    return selectedResponses[currentSlideIndex].responses
+  }, [currentSlideIndex, selectedResponses])
+
+  function renderCarouselSteps() {
+    return (
+      <CarouselSteps
+        numberOfSteps={questions.length}
+        selectedStep={currentSlideIndex}
+      />
+    )
+  }
+
+  function onCardPress(id) {
+    const index = currentResponses.findIndex((itemId) => itemId === id)
+
+    if (index >= 0) {
+      const respsCopy = [...currentResponses]
+      const selectedResponsesCopy = [...selectedResponses]
+      respsCopy.splice(index, 1)
+
+      selectedResponsesCopy[currentSlideIndex].responses = respsCopy
+
+      setSelectedResponses(selectedResponsesCopy)
+    } else {
+      const selectedResponsesCopy = [...selectedResponses]
+
+      selectedResponsesCopy[currentSlideIndex].responses = [
+        ...currentResponses,
+        id,
+      ]
+
+      setSelectedResponses(selectedResponsesCopy)
+    }
+  }
+
+  function renderCards(value) {
+    return value.options.map((item) => {
+      const isSelected =
+        currentResponses.find((itemId) => itemId === item.id) !== undefined
+      return (
+        <TouchableOpacity
+          activeOpacity={1}
+          style={[styles.touchableImage, isSelected && { borderColor: 'red' }]}
+          onPress={() => onCardPress(item.id)}
+        >
+          <Image source={{ uri: item.image }} style={styles.image} />
+        </TouchableOpacity>
+      )
+    })
+  }
+
+  function renderButton() {
+    if (currentSlideIndex + 1 === questions.length) {
+      return (
+        <View style={styles.buttonContainer}>
+          <Button onPress={concludeForm}>Concluir</Button>
+        </View>
+      )
+    }
+    return (
+      <View style={styles.buttonContainer}>
+        <Button onPress={next}>Avançar</Button>
+      </View>
+    )
+  }
+
+  function renderContent() {
+    if (isLoading) {
+      return (
+        <View style={styles.loaderContainer}>
+          <ActivityIndicator color={COLORS.BLACK} size='large' />
+        </View>
+      )
+    }
+
+    return (
+      <View style={styles.container}>
+        {renderCarouselSteps()}
+        <Carousel
+          data={questions}
+          inactiveSlideScale={1}
+          itemHeight={height}
+          itemWidth={width}
+          ref={carouselRef}
+          renderItem={({ item }) => (
+            <ScrollView contentContainerStyle={styles.cardContainer}>
+              <View style={styles.textContainer}>
+                <BBText size={23} style={styles.title} type='secondary-bold'>
+                  {item.title}
+                </BBText>
+                <BBText size={17} style={styles.subtitle}>
+                  {item.question}
+                </BBText>
+              </View>
+              <View style={styles.imageContainer}>{renderCards(item)}</View>
+            </ScrollView>
+          )}
+          sliderWidth={width}
+          onSnapToItem={(i) => handleSnapToItemEvent(i)}
+        />
+        {renderButton()}
+      </View>
+    )
+  }
+
+  return renderContent()
 }

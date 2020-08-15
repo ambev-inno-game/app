@@ -20,6 +20,7 @@ export default StyleSheet.create({
     width: '100%',
     height: 310,
     borderRadius: 15,
+    marginTop: 25,
   },
   finalScreen: {
     alignItems: 'center',
