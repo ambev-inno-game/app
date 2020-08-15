@@ -34,7 +34,11 @@ export function LandingScreen() {
   }
 
   function next() {
-    carouselRef.current.snapToNext()
+    if (currentSlideIndex + 1 < images.length) {
+      carouselRef.current.snapToNext()
+    } else {
+      skip()
+    }
   }
 
   function renderCarouselSteps() {

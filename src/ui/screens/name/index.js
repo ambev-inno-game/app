@@ -37,7 +37,10 @@ export function NameScreen() {
         innerRef={formRef}
         onSubmit={(params) => {
           if (params.name) {
-            NavigationService.pushReplacement({ screen: 'QuestionsScreen' })
+            NavigationService.pushReplacement({
+              screen: 'QuestionsScreen',
+              params,
+            })
           }
         }}
       >

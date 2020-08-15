@@ -49,3 +49,12 @@ export function setHasReadTutorial(hasRead) {
     },
   }
 }
+
+export function leadLogin({ name }) {
+  return {
+    type: ACTIONS_TYPES.LEAD_LOGIN,
+    payload: {
+      name,
+    },
+  }
+}
