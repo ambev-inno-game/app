@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { View, ActivityIndicator } from 'react-native'
 import { WebView } from 'react-native-webview'
 
@@ -14,15 +14,6 @@ export function SempreEmCasaScreen({ navigation }) {
 
   return (
     <WebView
-      renderLoading={() => {
-        return (
-          <View
-            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-          >
-            <ActivityIndicator color={COLORS.BLACK} size='large' />
-          </View>
-        )
-      }}
       source={{ uri: 'https://sempreemcasa.com.br/collections/todos' }}
     />
   )

@@ -12,10 +12,8 @@ export default StyleSheet.create({
     paddingRight: 20,
   },
   scrollView: {
-    // marginTop: 20,
-    // marginHorizontal: 40,
-    // backgroundColor: 'red',
     width: '100%',
+    // backgroundColor: 'red',
   },
   image: {
     width: width * 0.7,

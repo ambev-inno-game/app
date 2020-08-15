@@ -68,6 +68,22 @@ export function HomeScreen() {
           )
         })}
       </ScrollView>
+      <ScrollView
+        horizontal
+        showsVerticalScrollIndicator={false}
+        style={styles.scrollView}
+      >
+        {images.map((item) => {
+          return (
+            <TouchableOpacity
+              style={{ marginHorizontal: 7 }}
+              onPress={() => onSempreEmCasaBanner()}
+            >
+              <Image source={{ uri: item }} style={styles.image} />
+            </TouchableOpacity>
+          )
+        })}
+      </ScrollView>
     </View>
   )
 }
