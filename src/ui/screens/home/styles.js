@@ -12,9 +12,10 @@ export default StyleSheet.create({
   },
   scrollView: {
     marginBottom: 20,
+    flexDirection: 'row',
   },
   scrollImage: {
-    width: width * 0.7,
+    width: width * 0.29,
     height: (width / 2 - 30) * 1.2,
     borderRadius: 5,
   },

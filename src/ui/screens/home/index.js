@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ScrollView, Image, TouchableOpacity } from 'react-native'
+import { ScrollView, Image, TouchableOpacity, View } from 'react-native'
 
 import { COLORS } from '~/res'
 import { LoaderService, NavigationService } from '~/services'
@@ -9,16 +9,16 @@ import styles from './styles'
 
 const images = [
   {
+    image: 'http://lorempixel.com/g/300/310/',
+    screen: 'GiftsScreen',
+  },
+  {
     image: 'http://lorempixel.com/g/300/310/food',
     screen: 'QrCodeScreen',
   },
   {
     image: 'http://lorempixel.com/g/300/310/sports',
     screen: 'CollectionPointScreen',
-  },
-  {
-    image: 'http://lorempixel.com/g/300/310/',
-    screen: 'GiftsScreen',
   },
 ]
 
@@ -66,22 +66,20 @@ export function HomeScreen() {
       >
         Funções
       </BBText>
-      <ScrollView
-        horizontal
-        contentContainerStyle={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={styles.scrollView}>
         {images.map((item) => {
           return (
             <TouchableOpacity
-              style={{ marginHorizontal: 7 }}
+              style={{
+                marginHorizontal: 7,
+              }}
               onPress={() => onBanner(item.screen)}
             >
               <Image source={{ uri: item.image }} style={styles.scrollImage} />
             </TouchableOpacity>
           )
         })}
-      </ScrollView>
+      </View>
       <BBText
         color={COLORS.CORNFLOWER_BLUE}
         size={25}
