@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   scrollImage: {
     width: width * 0.29,
-    height: (width / 2 - 30) * 1,
+    height: width / 2 - 30,
     borderRadius: 5,
   },
   image: {
