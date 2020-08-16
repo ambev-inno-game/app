@@ -8,7 +8,7 @@ export default StyleSheet.create({
     padding: 10,
     alignItems: 'flex-end',
     justifyContent: 'center',
-    backgroundColor: COLORS.WHITE,
+    backgroundColor: COLORS.CORNFLOWER_BLUE,
     flexDirection: 'row',
   },
 
