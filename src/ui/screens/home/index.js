@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useLayoutEffect } from 'react'
 import { ScrollView, Image, TouchableOpacity, View } from 'react-native'
 
-import { COLORS } from '~/res'
-import { LoaderService, NavigationService } from '~/services'
-import { BBText } from '~/ui/components'
+import { NavigationService } from '~/services'
+import { AppHeader } from '~/ui/components'
 
 import styles from './styles'
 
@@ -22,18 +21,12 @@ const images = [
   },
 ]
 
-export function HomeScreen() {
-  useEffect(() => {
-    async function getHomeData() {
-      LoaderService.show()
-      // const homeData = await HomeApiService.getHomePage()
-
-      // setData(homeData)
-      LoaderService.hide()
-    }
-
-    getHomeData()
-  }, [])
+export function HomeScreen({ navigation }) {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader title='Home' />,
+    })
+  }, [navigation])
 
   function onBanner(value) {
     NavigationService.navigate({ screen: value })

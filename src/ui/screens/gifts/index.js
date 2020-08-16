@@ -20,7 +20,7 @@ const gifts = [
     id: 2,
   },
   {
-    title: 'Cupom Neshoes',
+    title: 'Cupom Netshoes',
     discount: '10%\noff',
     cost: '12.300',
     id: 3,
