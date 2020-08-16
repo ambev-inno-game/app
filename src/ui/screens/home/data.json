@@ -1,0 +1,21 @@
+{
+  "firstSection": {
+    "image": "http://lorempixel.com/g/300/310/",
+    "screen": "SempreEmCasaScreen"
+  },
+  "secondSection": [
+    {
+      "image": "http://lorempixel.com/g/300/310/",
+      "screen": "GiftsScreen"
+    },
+    {
+      "image": "http://lorempixel.com/g/300/310/food",
+      "screen": "QrCodeScreen"
+    },
+    {
+      "image": "http://lorempixel.com/g/300/310/sports",
+      "screen": "CollectionPointScreen"
+    }
+  ],
+  "thirdSection": ["link"]
+}

@@ -1,49 +1,43 @@
-import React, { useLayoutEffect } from 'react'
-import { ScrollView, Image, TouchableOpacity, View } from 'react-native'
+import React from 'react'
+import {
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  View,
+  TextInput,
+} from 'react-native'
 
+import { AntDesign } from '@expo/vector-icons'
+
+import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
-import { AppHeader } from '~/ui/components'
+import { BBText } from '~/ui/components'
 
+import data from './data.json'
 import styles from './styles'
 
-const images = [
-  {
-    image: 'http://lorempixel.com/g/300/310/',
-    screen: 'GiftsScreen',
-  },
-  {
-    image: 'http://lorempixel.com/g/300/310/food',
-    screen: 'QrCodeScreen',
-  },
-  {
-    image: 'http://lorempixel.com/g/300/310/sports',
-    screen: 'CollectionPointScreen',
-  },
-]
-
-export function HomeScreen({ navigation }) {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      header: () => <AppHeader title='Home' />,
-    })
-  }, [navigation])
-
+export function HomeScreen() {
   function onBanner(value) {
     NavigationService.navigate({ screen: value })
   }
 
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={() => onBanner('SempreEmCasaScreen')}>
-        <Image
-          source={{ uri: 'http://lorempixel.com/g/300/310/food' }}
-          style={styles.bigBanner}
-        />
+  function renderFirstSection() {
+    const { screen, image } = data.firstSection
+
+    return (
+      <TouchableOpacity activeOpacity={0.6} onPress={() => onBanner(screen)}>
+        <Image source={{ uri: image }} style={styles.bigBanner} />
       </TouchableOpacity>
+    )
+  }
+
+  function renderSecondSection() {
+    return (
       <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-        {images.map((item) => {
+        {data.secondSection.map((item) => {
           return (
             <TouchableOpacity
+              activeOpacity={0.6}
               key={item.screen}
               style={{
                 marginHorizontal: 7,
@@ -55,12 +49,45 @@ export function HomeScreen({ navigation }) {
           )
         })}
       </View>
-      <TouchableOpacity onPress={() => onBanner('ArticleScreen')}>
+    )
+  }
+
+  function renderThirdSection() {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onPress={() => onBanner('ArticleScreen')}
+      >
         <Image
           source={{ uri: 'http://lorempixel.com/g/300/310/sports' }}
           style={styles.bigBanner}
         />
       </TouchableOpacity>
-    </View>
+    )
+  }
+
+  function renderCustomHeader() {
+    return (
+      <View style={styles.headerContainer}>
+        <BBText color={COLORS.WHITE} size={22} type='secondary-bold'>
+          O que você procura?
+        </BBText>
+        <View>
+          <TextInput placeholder='Procure o seu produto' style={styles.input} />
+          <AntDesign name='search1' size={25} style={styles.inputStyle} />
+        </View>
+      </View>
+    )
+  }
+
+  return (
+    <>
+      {renderCustomHeader()}
+      <ScrollView>
+        {renderFirstSection()}
+        {renderSecondSection()}
+        {renderThirdSection()}
+      </ScrollView>
+    </>
   )
 }
