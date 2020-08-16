@@ -34,14 +34,6 @@ export function DrawerNavigation() {
   return (
     <Drawer.Navigator initialRouteName='HomeStack'>
       <Drawer.Screen
-        component={ProfileStack}
-        name='ProfileStack'
-        options={{
-          drawerLabel: 'Perfil',
-          drawerIcon: () => renderIcon('user'),
-        }}
-      />
-      <Drawer.Screen
         component={HomeStack}
         name='HomeStack'
         options={{
@@ -50,11 +42,11 @@ export function DrawerNavigation() {
         }}
       />
       <Drawer.Screen
-        component={FaqStack}
-        name='FaqStack'
+        component={ProfileStack}
+        name='ProfileStack'
         options={{
-          drawerLabel: 'FAQ',
-          drawerIcon: () => renderIcon('customerservice'),
+          drawerLabel: 'Perfil',
+          drawerIcon: () => renderIcon('user'),
         }}
       />
       <Drawer.Screen
@@ -63,14 +55,6 @@ export function DrawerNavigation() {
         options={{
           drawerLabel: 'Seus Pontos',
           drawerIcon: () => renderIcon('rocket1'),
-        }}
-      />
-      <Drawer.Screen
-        component={ArticleStack}
-        name='ArticleStack'
-        options={{
-          drawerLabel: 'Ambev Recicla',
-          drawerIcon: () => renderIcon('sync'),
         }}
       />
       <Drawer.Screen
@@ -87,6 +71,22 @@ export function DrawerNavigation() {
         options={{
           drawerLabel: 'Realizar Descarte',
           drawerIcon: () => renderIcon('qrcode'),
+        }}
+      />
+      <Drawer.Screen
+        component={ArticleStack}
+        name='ArticleStack'
+        options={{
+          drawerLabel: 'Ambev Recicla',
+          drawerIcon: () => renderIcon('sync'),
+        }}
+      />
+      <Drawer.Screen
+        component={FaqStack}
+        name='FaqStack'
+        options={{
+          drawerLabel: 'FAQ',
+          drawerIcon: () => renderIcon('customerservice'),
         }}
       />
     </Drawer.Navigator>

@@ -1,36 +1,14 @@
 import React, { useLayoutEffect } from 'react'
 import { View, Image, ScrollView } from 'react-native'
+import { useSelector } from 'react-redux'
 
+import { COLORS } from '~/res'
 import { BBText, AppHeader, Form, Input } from '~/ui/components'
 
 import styles from './styles'
 
-import { useSelector } from 'react-redux'
-import { COLORS } from '~/res'
-
 const defaultImageLink =
   'https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/ilustras.png'
-
-const coupon = [
-  {
-    title: 'Cupom petlove',
-    discount: '30%\noff',
-    cost: '5.000',
-    id: 1,
-  },
-  {
-    title: 'Cupom Steam',
-    discount: '15%\noff',
-    cost: '7.500',
-    id: 2,
-  },
-  {
-    title: 'Cupom Netshoes',
-    discount: '10%\noff',
-    cost: '12.500',
-    id: 3,
-  },
-]
 
 export function ProfileScreen({ navigation }) {
   const { name } = useSelector((state) => state.user)
@@ -59,13 +37,13 @@ export function ProfileScreen({ navigation }) {
         <View style={styles.congratsContainer}>
           <BBText
             color={COLORS.WHITE}
-            style={styles.congratsText}
             size={25}
+            style={styles.congratsText}
             type='secondary-bold'
           >
             Parabéns!
           </BBText>
-          <BBText color={COLORS.WHITE} style={styles.congratsText} size={18}>
+          <BBText color={COLORS.WHITE} size={18} style={styles.congratsText}>
             {
               'Você já salvou cerca de 68kg de resíduos recicláveis no planeta Terra. Continue conosco nessa caminhada. <3'
             }
@@ -75,8 +53,12 @@ export function ProfileScreen({ navigation }) {
           <BBText size={23} type='secondary-bold'>
             Seus dados
           </BBText>
-          <Form initialValues={{ email: '', password: '' }}>
-            <Input name='name' edit placeholder='Nome completo' value={name} />
+          <Form
+            initialValues={{ email: '', password: '' }}
+            innerRef={() => {}}
+            onSubmit={() => {}}
+          >
+            <Input edit name='name' placeholder='Nome completo' value={name} />
             <Input
               edit
               name='address'

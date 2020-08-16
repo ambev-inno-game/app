@@ -1,8 +1,8 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const { width, height } = Dimensions.get('window')
-
 import { COLORS } from '~/res'
+
+const { width, height } = Dimensions.get('window')
 
 export default StyleSheet.create({
   container: {
@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   profileImage: {
     width: width / 4,
-    height: height / 6.5,
+    height: width / 4,
     borderRadius: 100,
     borderWidth: 3,
     borderColor: COLORS.CARIBBEAN_GREEN,
