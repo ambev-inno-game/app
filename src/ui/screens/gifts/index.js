@@ -61,7 +61,7 @@ export function GiftsScreen({ navigation }) {
   function renderAvailableGifts() {
     return gifts.map((item) => {
       return (
-        <View style={styles.card}>
+        <View key={item.id} style={styles.card}>
           <View>
             <BBText uppercase size={15}>
               {item.title}

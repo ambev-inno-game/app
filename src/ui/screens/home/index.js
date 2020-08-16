@@ -54,6 +54,7 @@ export function HomeScreen() {
         {images.map((item) => {
           return (
             <TouchableOpacity
+              key={item.screen}
               style={{
                 marginHorizontal: 7,
               }}
