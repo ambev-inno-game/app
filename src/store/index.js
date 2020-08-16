@@ -17,7 +17,7 @@ const sagaMiddleware = createSagaMiddleware({ sagaMonitor, context: services })
 const middlewares = [sagaMiddleware]
 
 const persistConfig = {
-  key: 'root',
+  key: 'root-sempre-recicla',
   storage: AsyncStorage,
   whitelist: [],
 }

@@ -1,16 +1,31 @@
 {
+  "displayName": "Sempre Recicla",
   "name": "ambevinno",
-  "displayName": "ambevinno",
   "expo": {
     "name": "Sempre Recicla",
     "slug": "semprerecicla",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
     "splash": {
       "image": "./src/assets/splash.png",
-      "backgroundColor": "#00C2B0"
+      "backgroundColor": "#00C2B0",
+      "resizeMode": "contain"
+    },
+    "description": "Aplicação feita durante o Hackathon Ambev Inno Game II.",
+    "githubUrl": "https://github.com/ambev-inno-game/app",
+    "platforms": [
+      "android"
+    ],
+    "android": {
+      "package": "com.innogame.semprerecicla",
+      "versionCode": 1
+    },
+    "ios": {
+      "bundleIdentifier": "com.innogame.semprerecicla"
     }
   }
 }
