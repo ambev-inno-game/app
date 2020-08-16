@@ -67,13 +67,7 @@ const userTransactions = [
   },
 ]
 
-export function BadgeScreen({ navigation }) {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      header: () => <AppHeader title='Meus Pontos' />,
-    })
-  }, [navigation])
-
+export function BadgeScreen() {
   function renderTitle() {
     return (
       <View>

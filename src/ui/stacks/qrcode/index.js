@@ -10,7 +10,13 @@ const Stack = createStackNavigator()
 export function QrCodeStack() {
   return (
     <Stack.Navigator screenOptions={{ header: () => <AppHeader /> }}>
-      <Stack.Screen component={QrCodeScreen} name='QrCodeScreen' />
+      <Stack.Screen
+        component={QrCodeScreen}
+        name='QrCodeScreen'
+        options={{
+          header: () => <AppHeader title='Realizar Descarte' />,
+        }}
+      />
       <Stack.Screen
         component={QrCodeReagingSuccessScreen}
         name='QrCodeReagingSuccessScreen'

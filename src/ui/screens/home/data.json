@@ -1,21 +1,24 @@
 {
   "firstSection": {
-    "image": "http://lorempixel.com/g/300/310/",
+    "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/banner_sempre_casaa.png",
     "screen": "SempreEmCasaScreen"
   },
   "secondSection": [
     {
-      "image": "http://lorempixel.com/g/300/310/",
-      "screen": "GiftsScreen"
+      "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-1.png",
+      "screen": "CollectionPointScreen"
     },
     {
-      "image": "http://lorempixel.com/g/300/310/food",
+      "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-2.png",
       "screen": "QrCodeScreen"
     },
     {
-      "image": "http://lorempixel.com/g/300/310/sports",
-      "screen": "CollectionPointScreen"
+      "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-3.png",
+      "screen": "BadgeScreen"
     }
   ],
-  "thirdSection": ["link"]
+  "thirdSection": {
+    "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/banner_recicla.png",
+    "screen": "SempreEmCasaScreen"
+  }
 }

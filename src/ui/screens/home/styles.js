@@ -11,12 +11,12 @@ const imagesMargin = 10
 export default StyleSheet.create({
   bigBanner: {
     width: width - imagesMargin * 2,
-    height: contentHeight / 2,
+    height: contentHeight / 2.5,
     margin: 10,
     borderRadius: 10,
   },
   littleBanner: {
-    width: width / 3 - imagesMargin * 1.6,
+    width: width / 3 - imagesMargin * 2,
     height: contentHeight / 4,
     borderRadius: 10,
   },
@@ -37,5 +37,9 @@ export default StyleSheet.create({
     backgroundColor: COLORS.CORNFLOWER_BLUE,
     paddingBottom: 20,
     paddingHorizontal: 15,
+  },
+  secondSectionContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 })

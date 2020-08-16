@@ -33,19 +33,28 @@ export function HomeScreen() {
 
   function renderSecondSection() {
     return (
-      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+      <View style={styles.secondSectionContainer}>
         {data.secondSection.map((item) => {
           return (
-            <TouchableOpacity
-              activeOpacity={0.6}
+            <View
               key={item.screen}
               style={{
                 marginHorizontal: 7,
+                borderWidth: 2,
+                borderColor: COLORS.CARIBBEAN_GREEN,
+                borderRadius: 10,
               }}
-              onPress={() => onBanner(item.screen)}
             >
-              <Image source={{ uri: item.image }} style={styles.littleBanner} />
-            </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => onBanner(item.screen)}
+              >
+                <Image
+                  source={{ uri: item.image }}
+                  style={styles.littleBanner}
+                />
+              </TouchableOpacity>
+            </View>
           )
         })}
       </View>
@@ -53,15 +62,11 @@ export function HomeScreen() {
   }
 
   function renderThirdSection() {
+    const { screen, image } = data.thirdSection
+
     return (
-      <TouchableOpacity
-        activeOpacity={0.6}
-        onPress={() => onBanner('ArticleScreen')}
-      >
-        <Image
-          source={{ uri: 'http://lorempixel.com/g/300/310/sports' }}
-          style={styles.bigBanner}
-        />
+      <TouchableOpacity activeOpacity={0.6} onPress={() => onBanner(screen)}>
+        <Image source={{ uri: image }} style={styles.bigBanner} />
       </TouchableOpacity>
     )
   }
@@ -83,7 +88,7 @@ export function HomeScreen() {
   return (
     <>
       {renderCustomHeader()}
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ backgroundColor: COLORS.WHITE }}>
         {renderFirstSection()}
         {renderSecondSection()}
         {renderThirdSection()}
