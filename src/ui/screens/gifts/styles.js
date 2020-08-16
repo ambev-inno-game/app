@@ -13,7 +13,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: COLORS.WILD_SAND,
+    backgroundColor: COLORS.CORNFLOWER_BLUE,
     paddingVertical: 8,
     paddingHorizontal: 20,
     borderRadius: 10,

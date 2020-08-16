@@ -63,17 +63,12 @@ export function GiftsScreen({ navigation }) {
       return (
         <View key={item.id} style={styles.card}>
           <View>
-            <BBText uppercase size={15}>
+            <BBText uppercase color='white' size={16}>
               {item.title}
             </BBText>
-            <BBText>{`${item.cost} pts`} </BBText>
+            <BBText color='white'>{`${item.cost} pts`} </BBText>
           </View>
-          <BBText
-            uppercase
-            color={COLORS.CORNFLOWER_BLUE}
-            size={28}
-            type='secondary-bold'
-          >
+          <BBText uppercase color='white' size={28} type='secondary-bold'>
             {item.discount}
           </BBText>
         </View>
@@ -85,7 +80,7 @@ export function GiftsScreen({ navigation }) {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.topContainer}>
         <BBText size={16}>Aproveite os seus pontos!</BBText>
-        <BBText color={COLORS.CORNFLOWER_BLUE} size={22} type='secondary-bold'>
+        <BBText size={22} type='secondary-bold'>
           Saldo: 20.547 pontos
         </BBText>
       </View>

@@ -24,21 +24,21 @@ export function AppHeader({ showBackButton, title }) {
     if (showBackButton) {
       return (
         <TouchableOpacity style={{ padding: 5 }} onPress={onBackPress}>
-          <AntDesign name='arrowleft' size={25} />
+          <AntDesign color={COLORS.WHITE} name='arrowleft' size={25} />
         </TouchableOpacity>
       )
     }
 
     return (
       <TouchableOpacity style={{ padding: 5 }} onPress={onHamburguerPress}>
-        <FontAwesome name='navicon' size={25} />
+        <FontAwesome color={COLORS.WHITE} name='navicon' size={25} />
       </TouchableOpacity>
     )
   }
 
   function renderTitle() {
     return (
-      <BBText color={COLORS.CORNFLOWER_BLUE} size={22} type='secondary-bold'>
+      <BBText color={COLORS.WHITE} size={22} type='secondary-bold'>
         {title}
       </BBText>
     )

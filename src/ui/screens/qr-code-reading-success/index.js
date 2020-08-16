@@ -27,9 +27,9 @@ export function QrCodeReagingSuccessScreen({ route, navigation }) {
         {`Parabéns! Você devolveu ${params.readBottles} recipientes`}
       </BBText>
       <BBText size={16} style={styles.text}>
-        Obrigado por ajudar a gente a salvar o planeta. O melhor de tudo é que
-        de quebra você ainda ganha uns pontinhos que podem ser trocados por
-        descontos.
+        Obrigado por ajudar a salvar o planeta. O melhor de tudo é que de quebra
+        você ainda ganha uns pontinhos que podem ser trocados por descontos.
+        Aproveite!
       </BBText>
       <Image
         source={{
