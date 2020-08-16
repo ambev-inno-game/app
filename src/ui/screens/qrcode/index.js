@@ -21,6 +21,12 @@ export function QrCodeScreen({ navigation }) {
   const [readBottles, setReadBottles] = useState(0)
   const [hasScanned, setHasScanned] = useState(false)
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader showBackButton title='Realizar Descarte' />,
+    })
+  }, [navigation])
+
   useFocusEffect(
     useCallback(() => {
       setReadBottles(0)
@@ -59,7 +65,7 @@ export function QrCodeScreen({ navigation }) {
         if (!hasCheckedIn) {
           setHasCheckedIn(true)
           Alert.alert(
-            'Checkin feito com sucesso!',
+            'Check-in feito com sucesso!',
             'Agora você ja pode ler o QR code dos recipientes.',
             [
               {
@@ -97,7 +103,7 @@ export function QrCodeScreen({ navigation }) {
         if (!hasCheckedIn) {
           Alert.alert(
             'Opss...',
-            'Primeiro você precisa fazer o checkin no ponto de coleta.',
+            'Primeiro você precisa fazer o check-in no ponto de coleta.',
             [
               {
                 text: 'Entendi',

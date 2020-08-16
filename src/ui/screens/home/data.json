@@ -10,7 +10,7 @@
     },
     {
       "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-2.png",
-      "screen": "QrCodeScreen"
+      "screen": "QrCodeTutorialScreen"
     },
     {
       "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-3.png",
