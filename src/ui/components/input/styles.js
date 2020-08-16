@@ -4,7 +4,7 @@ import { COLORS } from '~/res'
 
 export default StyleSheet.create({
   input: {
-    padding: 15,
+    padding: 5,
     borderBottomWidth: 1,
     borderColor: COLORS.CORNFLOWER_BLUE,
     minWidth: '100%',
@@ -15,5 +15,8 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: -5,
     right: 10,
+  },
+  editLabel: {
+    marginTop: 15,
   },
 })
