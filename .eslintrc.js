@@ -2,10 +2,10 @@ module.exports = {
   env: {
     es2020: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
+  extends: ["plugin:react/recommended", "airbnb", "prettier", "prettier/react"],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
     __DEV__: true,
   },
   parserOptions: {
@@ -13,29 +13,29 @@ module.exports = {
       jsx: true,
     },
     ecmaVersion: 11,
-    sourceType: 'module',
-    parser: 'babel-eslint',
+    sourceType: "module",
+    parser: "babel-eslint",
   },
-  plugins: ['react', 'prettier', 'react-hooks', 'import-helpers'],
+  plugins: ["react", "prettier", "react-hooks", "import-helpers"],
   rules: {
-    'import/order': 'off',
-    'prettier/prettier': 'error',
-    'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
-    'import/prefer-default-export': 'off',
-    'jsx-quotes': ['error', 'prefer-single'],
-    'react/jsx-props-no-spreading': 'off',
-    'no-console': ['error'],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    'class-methods-use-this': 'off',
-    'react/forbid-prop-types': ['off', { forbid: ['any', 'array', 'object'] }],
-    'react/prop-types': ['error', { ignore: ['navigation', 'route'] }],
-    'no-underscore-dangle': 'off',
-    'no-plusplus': 'off',
-    'jsx-a11y/anchor-is-valid': 'off',
-    'import/no-unresolved': ['error', { ignore: ['@env'] }],
-    'react/sort-prop-types': [
+    "import/order": "off",
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": ["warn", { extensions: [".js", ".jsx"] }],
+    "import/prefer-default-export": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/jsx-props-no-spreading": "off",
+    "no-console": ["error"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "class-methods-use-this": "off",
+    "react/forbid-prop-types": ["off", { forbid: ["any", "array", "object"] }],
+    "react/prop-types": ["error", { ignore: ["navigation", "route"] }],
+    "no-underscore-dangle": "off",
+    "no-plusplus": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "import/no-unresolved": ["error", { ignore: ["@env"] }],
+    "react/sort-prop-types": [
       2,
       {
         callbacksLast: false,
@@ -45,13 +45,13 @@ module.exports = {
         noSortAlphabetically: false,
       },
     ],
-    'react/jsx-sort-default-props': [
+    "react/jsx-sort-default-props": [
       1,
       {
         ignoreCase: true,
       },
     ],
-    'react/jsx-sort-props': [
+    "react/jsx-sort-props": [
       2,
       {
         callbacksLast: true,
@@ -61,25 +61,25 @@ module.exports = {
         noSortAlphabetically: false,
       },
     ],
-    'import-helpers/order-imports': [
-      'error',
+    "import-helpers/order-imports": [
+      "error",
       {
-        newlinesBetween: 'always',
+        newlinesBetween: "always",
         groups: [
-          '/^react/',
-          'module',
-          '/^@/',
-          '/^~/',
-          ['parent', 'sibling', 'index'],
+          "/^react/",
+          "module",
+          "/^@/",
+          "/^~/",
+          ["parent", "sibling", "index"],
         ],
-        alphabetize: { order: 'asc', ignoreCase: true },
+        alphabetize: { order: "asc", ignoreCase: true },
       },
     ],
-    'import/no-extraneous-dependencies': 'off',
+    "import/no-extraneous-dependencies": "off",
   },
   settings: {
-    'import/resolver': {
-      'babel-plugin-root-import': {},
+    "import/resolver": {
+      "babel-plugin-root-import": {},
     },
   },
-}
+};
