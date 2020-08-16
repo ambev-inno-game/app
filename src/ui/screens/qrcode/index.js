@@ -21,6 +21,12 @@ export function QrCodeScreen({ navigation }) {
   const [readBottles, setReadBottles] = useState(0)
   const [hasScanned, setHasScanned] = useState(false)
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader showBackButton title='Realizar Descarte' />,
+    })
+  }, [navigation])
+
   useFocusEffect(
     useCallback(() => {
       setReadBottles(0)

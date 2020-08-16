@@ -11,6 +11,7 @@ import {
   BadgeScreen,
   GiftsScreen,
   QrCodeReagingSuccessScreen,
+  QrCodeTutorialScreen,
 } from '~/ui/screens'
 
 const Stack = createStackNavigator()
@@ -45,6 +46,13 @@ export function HomeStack() {
       <Stack.Screen
         component={QrCodeReagingSuccessScreen}
         name='QrCodeReagingSuccessScreen'
+      />
+      <Stack.Screen
+        component={QrCodeTutorialScreen}
+        name='QrCodeTutorialScreen'
+        options={{
+          header: () => <AppHeader showBackButton title='Realizar Descarte' />,
+        }}
       />
     </Stack.Navigator>
   )
