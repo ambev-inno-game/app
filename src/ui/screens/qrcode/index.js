@@ -144,7 +144,7 @@ export function QrCodeScreen({ navigation }) {
             style={{ textAlign: 'center' }}
             type='secondary-bold'
           >
-            Acesso a camera negado. Precisamos de acesso a sua camera para ler o
+            Acesso a câmera negado. Precisamos de acesso a sua câmera para ler o
             QR Code!
           </BBText>
           <Button onPress={getPermissionsAsync}>Entendido</Button>
@@ -162,7 +162,7 @@ export function QrCodeScreen({ navigation }) {
           >{`Recipientes escaneado: ${readBottles}`}</BBText>
         </View>
         <BarCodeScanner
-          style={StyleSheet.absoluteFillObject}
+          style={{ flex: 1, marginBottom: 5 }}
           onBarCodeScanned={(params) => {
             if (!hasScanned) {
               handleBarCodeScanned(params)

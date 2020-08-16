@@ -1,11 +1,17 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useLayoutEffect } from 'react'
+import { StyleSheet, View } from 'react-native'
 
 import { StatusBar } from 'expo-status-bar'
 
-import { BBText } from '~/ui/components'
+import { BBText, AppHeader } from '~/ui/components'
 
-export function ProfileScreen() {
+export function ProfileScreen({ navigation }) {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader title='Perfil' />,
+    })
+  }, [navigation])
+
   return (
     <View style={styles.container}>
       <BBText size={20} type='secondary-bold'>

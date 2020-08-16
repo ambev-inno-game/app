@@ -5,7 +5,7 @@ import { COLORS } from '~/res/colors'
 export default StyleSheet.create({
   container: {
     padding: 20,
-    paddingTop: 20,
+    paddingTop: 50,
     backgroundColor: COLORS.WHITE,
     flexGrow: 1,
   },

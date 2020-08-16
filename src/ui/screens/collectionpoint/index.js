@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
 import { View } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 
 import * as Location from 'expo-location'
 
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { useFocusEffect } from '@react-navigation/native'
 
 import { ToastService } from '~/services'
 import { ScreenLoader, AppHeader } from '~/ui/components'
@@ -15,28 +16,30 @@ export function CollectionPointScreen({ navigation }) {
   const [location, setLocation] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
+  async function getLocation() {
+    setIsLoading(true)
+    const { status } = await Location.requestPermissionsAsync()
+    if (status !== 'granted') {
+      ToastService.show('O acesso a localização não foi permitido')
+    }
+
+    const currentLocation = await Location.getCurrentPositionAsync({})
+
+    setLocation(currentLocation.coords)
+    setIsLoading(false)
+  }
+
+  useFocusEffect(
+    useCallback(() => {
+      getLocation()
+    }, [])
+  )
+
   useLayoutEffect(() => {
     navigation.setOptions({
       header: () => <AppHeader title='Pontos de Coleta' />,
     })
   }, [navigation])
-
-  useEffect(() => {
-    async function getLocation() {
-      setIsLoading(true)
-      const { status } = await Location.requestPermissionsAsync()
-      if (status !== 'granted') {
-        ToastService.show('O acesso a localização não foi permitido')
-      }
-
-      const currentLocation = await Location.getCurrentPositionAsync({})
-
-      setLocation(currentLocation.coords)
-      setIsLoading(false)
-    }
-
-    getLocation()
-  }, [])
 
   function renderMarkers() {
     const markers = [0.003, -0.005, 0.008, -0.01, 0.011, 0.032]
