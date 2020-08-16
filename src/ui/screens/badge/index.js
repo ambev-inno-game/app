@@ -14,55 +14,55 @@ const userTransactions = [
   {
     date: '01/08/2020',
     title: 'Compra',
-    points: '30',
+    points: '1.635',
     id: 1,
   },
   {
     date: '05/08/2020',
     title: 'Reciclagem',
-    points: '30',
+    points: '3.800',
     id: 2,
   },
   {
     date: '01/07/2020',
     title: 'Reciclagem',
-    points: '30',
+    points: '1.800',
     id: 3,
   },
   {
     date: '12/06/2020',
     title: 'Compra',
-    points: '30',
+    points: '2.455',
     id: 7,
   },
   {
     date: '01/05/2020',
     title: 'Reciclagem',
-    points: '30',
+    points: '4.200',
     id: 4,
   },
   {
     date: '21/04/2020',
     title: 'Compra',
-    points: '30',
+    points: '820',
     id: 5,
   },
   {
     date: '28/03/2020',
     title: 'Reciclagem',
-    points: '30',
+    points: '1.400',
     id: 6,
   },
   {
     date: '27/03/2020',
     title: 'Compra',
-    points: '30',
+    points: '1.630',
     id: 8,
   },
   {
     date: '01/02/2020',
     title: 'Reciclagem',
-    points: '30',
+    points: '2.800',
     id: 9,
   },
 ]
@@ -73,7 +73,7 @@ export function BadgeScreen() {
       <View>
         <BBText size={16}>Você está com</BBText>
         <BBText color={COLORS.CORNFLOWER_BLUE} size={22} type='secondary-bold'>
-          20.547 pontos
+          20.540 pontos
         </BBText>
       </View>
     )
