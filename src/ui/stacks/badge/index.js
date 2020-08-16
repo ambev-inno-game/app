@@ -14,7 +14,7 @@ export function BadgeStack() {
         component={BadgeScreen}
         name='BadgeScreen'
         options={{
-          header: () => <AppHeader showBackButton title='Seus Pontos' />,
+          header: () => <AppHeader title='Seus Pontos' />,
         }}
       />
       <Stack.Screen component={GiftsScreen} name='GiftsScreen' />
