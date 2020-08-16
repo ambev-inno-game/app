@@ -65,7 +65,7 @@ export function QrCodeScreen({ navigation }) {
         if (!hasCheckedIn) {
           setHasCheckedIn(true)
           Alert.alert(
-            'Checkin feito com sucesso!',
+            'Check-in feito com sucesso!',
             'Agora você ja pode ler o QR code dos recipientes.',
             [
               {
@@ -103,7 +103,7 @@ export function QrCodeScreen({ navigation }) {
         if (!hasCheckedIn) {
           Alert.alert(
             'Opss...',
-            'Primeiro você precisa fazer o checkin no ponto de coleta.',
+            'Primeiro você precisa fazer o check-in no ponto de coleta.',
             [
               {
                 text: 'Entendi',
