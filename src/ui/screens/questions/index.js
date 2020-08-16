@@ -120,7 +120,7 @@ export function QuestionsScreen({ route }) {
           ]}
           onPress={() => onCardPress(item.id)}
         >
-          <Image source={{ uri: item.image }} style={styles.image} />
+          <Image source={{ uri: item.imgLink }} style={styles.image} />
         </TouchableOpacity>
       )
     })
