@@ -74,14 +74,6 @@ export function DrawerNavigation() {
         }}
       />
       <Drawer.Screen
-        component={ArticleStack}
-        name='ArticleStack'
-        options={{
-          drawerLabel: 'Ambev Recicla',
-          drawerIcon: () => renderIcon('sync'),
-        }}
-      />
-      <Drawer.Screen
         component={FaqStack}
         name='FaqStack'
         options={{
