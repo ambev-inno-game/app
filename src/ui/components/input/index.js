@@ -1,3 +1,5 @@
+/* eslint-disable react/sort-prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react'
 import { TextInput, View } from 'react-native'
 
@@ -10,7 +12,7 @@ import { BBText } from '../text'
 import styles from './styles'
 
 export function Input(props) {
-  const { innerRef, placeholder, ...otherProps } = props
+  const { edit, value, innerRef, placeholder, ...otherProps } = props
 
   const [field, meta, helpers] = useField(props)
 
@@ -37,11 +39,16 @@ export function Input(props) {
 
   return (
     <View>
+      {edit && (
+        <BBText style={styles.editLabel} size={17}>
+          {placeholder}
+        </BBText>
+      )}
       <TextInput
         placeholder={placeholder}
         ref={innerRef}
         style={styles.input}
-        value={field.value}
+        value={field.value || value}
         onBlur={onBlur}
         onChange={onChange}
         {...otherProps}
@@ -55,6 +62,8 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   innerRef: PropTypes.func,
   placeholder: PropTypes.string,
+  value: PropTypes.string,
+  edit: PropTypes.bool,
 }
 
 Input.defaultProps = {
