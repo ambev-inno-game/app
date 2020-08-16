@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import {
   ScrollView,
   Image,
@@ -11,12 +11,18 @@ import { AntDesign } from '@expo/vector-icons'
 
 import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
-import { BBText } from '~/ui/components'
+import { BBText, AppHeader } from '~/ui/components'
 
 import data from './data.json'
 import styles from './styles'
 
-export function HomeScreen() {
+export function HomeScreen({ navigation }) {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader showLogo />,
+    })
+  }, [navigation])
+
   function onBanner(value) {
     NavigationService.navigate({ screen: value })
   }

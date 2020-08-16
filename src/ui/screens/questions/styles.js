@@ -16,6 +16,7 @@ export default StyleSheet.create({
   cardContainer: {
     marginBottom: 140,
     flexGrow: 1,
+    paddingBottom: 10,
   },
   touchableImage: {
     marginVertical: 5,

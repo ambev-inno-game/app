@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, Image } from 'react-native'
 
 import PropTypes from 'prop-types'
 
@@ -9,9 +9,10 @@ import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
 import { BBText } from '~/ui/components'
 
+import logo from './logo.png'
 import styles from './styles'
 
-export function AppHeader({ showBackButton, title }) {
+export function AppHeader({ showBackButton, title, showLogo }) {
   function onHamburguerPress() {
     NavigationService.openDrawer()
   }
@@ -37,6 +38,15 @@ export function AppHeader({ showBackButton, title }) {
   }
 
   function renderTitle() {
+    if (showLogo) {
+      return (
+        <Image
+          source={logo}
+          style={{ width: 100, height: 30, marginBottom: 10 }}
+        />
+      )
+    }
+
     return (
       <BBText color={COLORS.WHITE} size={22} type='secondary-bold'>
         {title}
@@ -54,10 +64,12 @@ export function AppHeader({ showBackButton, title }) {
 
 AppHeader.propTypes = {
   showBackButton: PropTypes.bool,
+  showLogo: PropTypes.bool,
   title: PropTypes.string,
 }
 
 AppHeader.defaultProps = {
   showBackButton: false,
+  showLogo: false,
   title: '',
 }
