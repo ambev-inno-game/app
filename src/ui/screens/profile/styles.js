@@ -10,6 +10,9 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     paddingTop: 30,
   },
+  name: {
+    marginTop: 10,
+  },
   image: {
     width: width / 2,
     height: height / 3.5,

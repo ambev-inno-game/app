@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { View, ScrollView, TouchableOpacity } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons'
 
 import { COLORS } from '~/res'
 import { NavigationService } from '~/services'
-import { BBText } from '~/ui/components'
+import { BBText, AppHeader } from '~/ui/components'
 
 import { ProgressList } from './components'
 import styles from './styles'
@@ -67,7 +67,13 @@ const userTransactions = [
   },
 ]
 
-export function BadgeScreen() {
+export function BadgeScreen({ navigation }) {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => <AppHeader title='Meus Pontos' />,
+    })
+  }, [navigation])
+
   function renderTitle() {
     return (
       <View>

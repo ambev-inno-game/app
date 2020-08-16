@@ -2,31 +2,22 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 import { COLORS } from '~/res'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
+
+const contentHeight = height - 90
+
+const imagesMargin = 10
 
 export default StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    backgroundColor: COLORS.WHITE,
-    paddingVertical: 35,
+  bigBanner: {
+    width: width - imagesMargin * 2,
+    height: contentHeight / 3 - imagesMargin * 2,
+    margin: 10,
+    borderRadius: 10,
   },
-  scrollView: {
-    marginBottom: 20,
-    flexDirection: 'row',
-  },
-  scrollImage: {
-    width: width * 0.29,
-    height: width / 2 - 30,
-    borderRadius: 5,
-  },
-  image: {
-    width: width * 0.95,
-    height: (width / 2 - 30) * 1.2,
-    borderRadius: 5,
-    marginBottom: 20,
-  },
-  title: {
-    textAlign: 'left',
-    paddingLeft: 7,
+  littleBanner: {
+    width: width / 3 - imagesMargin * 1.6,
+    height: contentHeight / 3,
+    borderRadius: 10,
   },
 })

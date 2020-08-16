@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, ScrollView } from 'react-native'
 
 import { COLORS } from '~/res'
 import { utils } from '~/res/utils'
@@ -36,7 +36,7 @@ export function NameScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       {renderTopView()}
       <Form
         initialValues={{ name: '' }}
@@ -71,6 +71,6 @@ export function NameScreen() {
       >
         Avançar
       </Button>
-    </View>
+    </ScrollView>
   )
 }
