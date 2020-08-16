@@ -20,12 +20,21 @@ export default StyleSheet.create({
   touchableImage: {
     marginVertical: 5,
     borderRadius: 15,
-    borderWidth: 3,
+    borderWidth: 2,
     borderColor: 'transparent',
     overflow: 'hidden',
     width: width / 3 - 20,
     height: (width / 3 - 20) * 1.2,
     backgroundColor: COLORS.ALTO,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
   },
   imageContainer: {
     flex: 1,

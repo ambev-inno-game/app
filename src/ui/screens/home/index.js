@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ScrollView, Image, TouchableOpacity } from 'react-native'
+import { ScrollView, Image, TouchableOpacity, View } from 'react-native'
 
 import { COLORS } from '~/res'
 import { LoaderService, NavigationService } from '~/services'
@@ -9,16 +9,16 @@ import styles from './styles'
 
 const images = [
   {
+    image: 'http://lorempixel.com/g/300/310/',
+    screen: 'GiftsScreen',
+  },
+  {
     image: 'http://lorempixel.com/g/300/310/food',
     screen: 'QrCodeScreen',
   },
   {
     image: 'http://lorempixel.com/g/300/310/sports',
     screen: 'CollectionPointScreen',
-  },
-  {
-    image: 'http://lorempixel.com/g/300/310/',
-    screen: 'GiftsScreen',
   },
 ]
 
@@ -41,14 +41,6 @@ export function HomeScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <BBText
-        color={COLORS.CORNFLOWER_BLUE}
-        size={25}
-        style={styles.title}
-        type='secondary-bold'
-      >
-        Sempre em Casa
-      </BBText>
       <TouchableOpacity
         style={{ marginHorizontal: 7 }}
         onPress={() => onBanner('SempreEmCasaScreen')}
@@ -58,38 +50,20 @@ export function HomeScreen() {
           style={styles.image}
         />
       </TouchableOpacity>
-      <BBText
-        color={COLORS.CORNFLOWER_BLUE}
-        size={25}
-        style={styles.title}
-        type='secondary-bold'
-      >
-        Funções
-      </BBText>
-      <ScrollView
-        horizontal
-        contentContainerStyle={styles.scrollView}
-        showsVerticalScrollIndicator={false}
-      >
+      <View style={styles.scrollView}>
         {images.map((item) => {
           return (
             <TouchableOpacity
-              style={{ marginHorizontal: 7 }}
+              style={{
+                marginHorizontal: 7,
+              }}
               onPress={() => onBanner(item.screen)}
             >
               <Image source={{ uri: item.image }} style={styles.scrollImage} />
             </TouchableOpacity>
           )
         })}
-      </ScrollView>
-      <BBText
-        color={COLORS.CORNFLOWER_BLUE}
-        size={25}
-        style={styles.title}
-        type='secondary-bold'
-      >
-        Ambev Recicla
-      </BBText>
+      </View>
       <TouchableOpacity
         style={{ marginHorizontal: 7 }}
         onPress={() => onBanner('ArticleScreen')}
