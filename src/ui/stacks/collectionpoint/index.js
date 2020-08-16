@@ -13,6 +13,9 @@ export function CollectionPointStack() {
       <Stack.Screen
         component={CollectionPointScreen}
         name='CollectionPointStack'
+        options={{
+          header: () => <AppHeader title='Pontos de Coleta' />,
+        }}
       />
     </Stack.Navigator>
   )

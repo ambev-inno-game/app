@@ -10,7 +10,13 @@ const Stack = createStackNavigator()
 export function BadgeStack() {
   return (
     <Stack.Navigator screenOptions={{ header: () => <AppHeader /> }}>
-      <Stack.Screen component={BadgeScreen} name='BadgeScreen' />
+      <Stack.Screen
+        component={BadgeScreen}
+        name='BadgeScreen'
+        options={{
+          header: () => <AppHeader showBackButton title='Seus Pontos' />,
+        }}
+      />
       <Stack.Screen component={GiftsScreen} name='GiftsScreen' />
     </Stack.Navigator>
   )

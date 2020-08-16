@@ -23,7 +23,7 @@ import styles from './styles'
 
 const { width, height } = Dimensions.get('window')
 
-const responsesModel = [{ responses: [] }, { responses: [] }]
+const responsesModel = [{ responses: [] }, { responses: [] }, { responses: [] }]
 
 export function QuestionsScreen({ route }) {
   const { params } = route
@@ -139,6 +139,25 @@ export function QuestionsScreen({ route }) {
     )
   }
 
+  function renderTitle(title) {
+    let customTitle = title
+
+    if (currentSlideIndex === 0) {
+      customTitle = params.name + title
+    }
+
+    return (
+      <BBText
+        color={COLORS.CORNFLOWER_BLUE}
+        size={23}
+        style={styles.title}
+        type='secondary-bold'
+      >
+        {customTitle}
+      </BBText>
+    )
+  }
+
   function renderContent() {
     if (isLoading) {
       return (
@@ -160,14 +179,7 @@ export function QuestionsScreen({ route }) {
           renderItem={({ item }) => (
             <ScrollView contentContainerStyle={styles.cardContainer}>
               <View style={styles.textContainer}>
-                <BBText
-                  color={COLORS.CORNFLOWER_BLUE}
-                  size={23}
-                  style={styles.title}
-                  type='secondary-bold'
-                >
-                  {item.title}
-                </BBText>
+                {renderTitle(item.title)}
                 <BBText size={17} style={styles.subtitle}>
                   {item.question}
                 </BBText>

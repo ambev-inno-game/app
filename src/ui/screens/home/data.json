@@ -1,0 +1,24 @@
+{
+  "firstSection": {
+    "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/banner_sempre_casaa.png",
+    "screen": "SempreEmCasaScreen"
+  },
+  "secondSection": [
+    {
+      "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-1.png",
+      "screen": "CollectionPointScreen"
+    },
+    {
+      "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-2.png",
+      "screen": "QrCodeScreen"
+    },
+    {
+      "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/home/icon-3.png",
+      "screen": "BadgeScreen"
+    }
+  ],
+  "thirdSection": {
+    "image": "https://hackathon-assinatura-ambev.s3.us-east-2.amazonaws.com/banner_recicla.png",
+    "screen": "SempreEmCasaScreen"
+  }
+}

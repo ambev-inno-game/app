@@ -28,12 +28,6 @@ export function QrCodeScreen({ navigation }) {
     }, [])
   )
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      header: () => <AppHeader title='Leitor' />,
-    })
-  }, [navigation])
-
   async function getPermissionsAsync() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA)
     setHasCameraPermission(status === 'granted')

@@ -35,12 +35,6 @@ export function CollectionPointScreen({ navigation }) {
     }, [])
   )
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      header: () => <AppHeader title='Pontos de Coleta' />,
-    })
-  }, [navigation])
-
   function renderMarkers() {
     const markers = [0.003, -0.005, 0.008, -0.01, 0.011, 0.032]
 

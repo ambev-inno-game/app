@@ -61,7 +61,7 @@ export function DrawerNavigation() {
         component={BadgeStack}
         name='BadgeStack'
         options={{
-          drawerLabel: 'Meus Pontos',
+          drawerLabel: 'Seus Pontos',
           drawerIcon: () => renderIcon('rocket1'),
         }}
       />
@@ -85,7 +85,7 @@ export function DrawerNavigation() {
         component={QrCodeStack}
         name='QrCodeStack'
         options={{
-          drawerLabel: 'Scanner QR Code',
+          drawerLabel: 'Realizar Descarte',
           drawerIcon: () => renderIcon('qrcode'),
         }}
       />
