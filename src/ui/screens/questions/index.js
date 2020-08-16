@@ -55,8 +55,6 @@ export function QuestionsScreen({ route }) {
       selectedResponses.filter(({ responses }) => responses.length > 0)
         .length === questions.length
 
-    console.tron.log(hasAnsweredAllQuestions)
-
     if (hasAnsweredAllQuestions) {
       dispatch(authActions.leadLogin({ name: params.name }))
       NavigationService.pushReplacement({ screen: 'DrawerNavigation' })
