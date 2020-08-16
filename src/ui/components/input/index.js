@@ -35,13 +35,20 @@ export function Input(props) {
     return null
   }
 
-  return (
-    <View>
-      {edit && (
+  function renderLabel() {
+    if (edit) {
+      return (
         <BBText style={styles.editLabel} size={17}>
           {placeholder}
         </BBText>
-      )}
+      )
+    }
+    return null
+  }
+
+  return (
+    <View>
+      {renderLabel()}
       <TextInput
         placeholder={placeholder}
         ref={innerRef}
