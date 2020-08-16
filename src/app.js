@@ -18,7 +18,6 @@ import {
   AuthStack,
   BadgeStack,
   ArticleStack,
-  DiscardStack,
   CollectionPointStack,
   QuestionsStack,
   QrCodeStack,
@@ -72,14 +71,6 @@ export function DrawerNavigation() {
         options={{
           drawerLabel: 'Ambev Recicla',
           drawerIcon: () => renderIcon('sync'),
-        }}
-      />
-      <Drawer.Screen
-        component={DiscardStack}
-        name='DiscardStack'
-        options={{
-          drawerLabel: 'Descarte Bem',
-          drawerIcon: () => renderIcon('warning'),
         }}
       />
       <Drawer.Screen
