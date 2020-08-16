@@ -18,7 +18,13 @@ const authPersistConfig = {
   ],
 }
 
+const userPersistConfig = {
+  key: 'bebabem_user',
+  storage: AsyncStorage,
+  whitelist: ['name', 'email'],
+}
+
 export default combineReducers({
-  user,
+  user: persistReducer(userPersistConfig, user),
   auth: persistReducer(authPersistConfig, auth),
 })
