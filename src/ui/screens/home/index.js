@@ -33,17 +33,14 @@ export function HomeScreen({ navigation }) {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <TouchableOpacity
-        style={{ marginHorizontal: 7 }}
-        onPress={() => onBanner('SempreEmCasaScreen')}
-      >
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => onBanner('SempreEmCasaScreen')}>
         <Image
           source={{ uri: 'http://lorempixel.com/g/300/310/food' }}
-          style={styles.image}
+          style={styles.bigBanner}
         />
       </TouchableOpacity>
-      <View style={styles.scrollView}>
+      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
         {images.map((item) => {
           return (
             <TouchableOpacity
@@ -53,20 +50,17 @@ export function HomeScreen({ navigation }) {
               }}
               onPress={() => onBanner(item.screen)}
             >
-              <Image source={{ uri: item.image }} style={styles.scrollImage} />
+              <Image source={{ uri: item.image }} style={styles.littleBanner} />
             </TouchableOpacity>
           )
         })}
       </View>
-      <TouchableOpacity
-        style={{ marginHorizontal: 7 }}
-        onPress={() => onBanner('ArticleScreen')}
-      >
+      <TouchableOpacity onPress={() => onBanner('ArticleScreen')}>
         <Image
           source={{ uri: 'http://lorempixel.com/g/300/310/sports' }}
-          style={styles.image}
+          style={styles.bigBanner}
         />
       </TouchableOpacity>
-    </ScrollView>
+    </View>
   )
 }
